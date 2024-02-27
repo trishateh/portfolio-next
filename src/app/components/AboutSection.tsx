@@ -89,7 +89,8 @@ const TAB_DATA = [
           Cybersecurity (CC) Training (2003)
         </li>
         <li>
-          Certificate of Completion of Covalent's Data Alchemist Bootcamp (2022)
+          Certificate of Completion of Covalent&apos;s Data Alchemist Bootcamp
+          (2022)
         </li>
         <li>Bachelor of Medicine, Bachelor of Surgery (2012)</li>
       </ul>
