@@ -120,16 +120,16 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            I am a former doctor who has experienced firsthand how technology
-            transforms healthcare. My background in radiology exposed me to the
-            world of computers and machines. Little did i know that it would
-            lead to discovering my passion for coding and web development. It is
-            no secret that being a doctor is not a bed of roses. In those
-            moments of darkness, I would retreat to my developer-cave, immerse
-            myself in building web3 applications, and find a renewed sense of
-            joy and accomplishment. As a software engineer with a passion for
-            blockchain technology, I am ever learning new skills, programming
-            languages and frameworks to advance in this exciting field.
+            As a former medical doctor turned blockchain developer, my journey
+            from healthcare to the forefront of technology has been driven by a
+            fascination with the transformative power of digital solutions.
+            Transitioning from diagnosing patients to debugging code, I've
+            leveraged my analytical skills and attention to detail in both
+            realms. Now, as a software engineer specializing in blockchain
+            technology, I'm committed to continuous learning and innovation. My
+            aim is to contribute to projects that push the boundaries of what's
+            possible, harnessing blockchain's potential to create secure,
+            transparent, and efficient systems.
           </p>
           <div className="flex flex-row md:justify-start justify-center mt-8">
             <TabButton
