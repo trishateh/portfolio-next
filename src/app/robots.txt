@@ -1,4 +1,5 @@
 User-Agent: *
-Disallow:
+Allow: /
+Disallow: /private/
 
 Sitemap: https://www.trishateh.com/sitemap.xml
