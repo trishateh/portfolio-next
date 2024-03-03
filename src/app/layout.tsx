@@ -5,18 +5,19 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Web3 & Blockchain Developer | Trisha Teh",
+  title: "Trisha Teh | Blockchain Developer & Web3 Innovator",
   description:
-    "Trisha Teh Web3 & Blockchain developer portfolio showcasing my projects.",
+    "Dive into the portfolio of Trisha Teh, a forward-thinking Blockchain Developer at the cutting edge of Web3 innovations.",
+  metadataBase: new URL("https://www.trishateh.com"),
   twitter: {
     card: "summary_large_image",
-    title: "Web3 & Blockchain Developer | Trisha Teh",
+    title: "Trisha Teh | Blockchain Developer & Web3 Innovator",
     description:
-      "Trisha Teh Web3 & Blockchain developer portfolio showcasing my projects.",
+      "Dive into the portfolio of Trisha Teh, a forward-thinking Blockchain Developer at the cutting edge of Web3 innovations.",
     creator: "@_disco_giraffe",
     images: [
       {
-        url: "https://www.trishateh.com/opengraph-image.png",
+        url: "/opengraph-image.png",
         type: "image/png",
         width: 1200,
         height: 630,
@@ -25,14 +26,14 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Web3 & Blockchain Developer | Trisha Teh",
+    title: "Trisha Teh | Blockchain Developer & Web3 Innovator",
     url: "https://www.trishateh.com",
     description:
-      "Trisha Teh Web3 & Blockchain developer portfolio showcasing my projects.",
+      "Dive into the portfolio of Trisha Teh, a forward-thinking Blockchain Developer at the cutting edge of Web3 innovations.",
     type: "website",
     images: [
       {
-        url: "https://www.trishateh.com/opengraph-image.png",
+        url: "/opengraph-image.png",
         type: "image/png",
         width: 1200,
         height: 630,
