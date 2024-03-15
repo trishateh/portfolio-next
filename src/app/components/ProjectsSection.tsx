@@ -14,7 +14,7 @@ const projectsData = [
     image: "/images/projects/v2minting.png",
     tag: ["All", "Smart Contracts"],
     gitUrl:
-      "https://bscscan.com/token/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
+      "https://polygonscan.com/address/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
     previewUrl: "https://play.arcaden.com/minting",
   },
   {
