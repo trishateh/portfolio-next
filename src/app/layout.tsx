@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Trisha Teh | Blockchain Developer & Web3 Innovator",
   description:
     "Dive into the portfolio of Trisha Teh, a forward-thinking Blockchain Developer at the cutting edge of Web3 innovations.",
+  robots: {
+    googleBot: {
+      noimageindex: true,
+    },
+  },
   metadataBase: new URL("https://www.trishateh.com"),
   twitter: {
     card: "summary_large_image",
