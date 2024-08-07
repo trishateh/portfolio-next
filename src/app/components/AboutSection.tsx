@@ -14,11 +14,11 @@ const TAB_DATA = [
         <li>Hardhat</li>
         <li>TypeScript</li>
         <li>JavaScript</li>
-        <li>React</li>
+        <li>React / NextJS</li>
         <li>Express</li>
         <li>Node.js</li>
+        <li>NestJS</li>
         <li>PostgreSQL</li>
-        <li>TypeORM</li>
         <li>Prisma</li>
       </ul>
     ),
