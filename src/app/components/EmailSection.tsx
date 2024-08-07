@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FeedbackForm } from "./FeedbackForm";
 
 const EmailSection = () => {
   return (
@@ -28,7 +29,8 @@ const EmailSection = () => {
         </div>
       </div>
       <div>
-        <form
+        <FeedbackForm />
+        {/* <form
           className="flex flex-col"
           name="contact"
           method="POST"
@@ -87,7 +89,7 @@ const EmailSection = () => {
           >
             Send Message
           </button>
-        </form>
+        </form> */}
       </div>
     </section>
   );
