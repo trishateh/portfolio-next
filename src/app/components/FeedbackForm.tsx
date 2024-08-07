@@ -94,15 +94,15 @@ export function FeedbackForm() {
         Send Message
       </button>
       {status === "ok" && (
-        <div className="alert alert-success">
+        <div className="flex items-center space-x-2 mt-4 p-4 bg-green-600 text-white rounded-lg">
           <SuccessIcon />
-          Submitted!
+          <span>Submitted!</span>
         </div>
       )}
       {status === "error" && (
-        <div className="alert alert-error">
+        <div className="flex items-center space-x-2 mt-4 p-4 bg-red-600 text-white rounded-lg">
           <ErrorIcon />
-          {error}
+          <span>{error}</span>
         </div>
       )}
     </form>
