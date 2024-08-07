@@ -19,7 +19,6 @@ const TAB_DATA = [
         <li>Node.js</li>
         <li>NestJS</li>
         <li>PostgreSQL</li>
-        <li>Prisma</li>
       </ul>
     ),
   },
