@@ -26,7 +26,7 @@ const projectsData = [
     tag: ["All", "Smart Contracts"],
     gitUrl:
       "https://polygonscan.com/address/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
-    previewUrl: "https://play.arcaden.com/minting",
+    previewUrl: "https://x.com/arcadenofficial",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const projectsData = [
     tag: ["All", "Smart Contracts"],
     gitUrl:
       "https://bscscan.com/token/0x19e234fbeE6e3cBfd135CE9e0867d8a5729b1136#code",
-    previewUrl: "https://play.arcaden.com/burn-island",
+    previewUrl: "https://x.com/arcadenofficial",
   },
   {
     id: 4,
