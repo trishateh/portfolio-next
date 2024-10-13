@@ -11,6 +11,8 @@ interface IProjectCard {
 }
 
 const ProjectCard = (props: IProjectCard) => {
+  const isExternalLink = props.previewUrl?.startsWith("http");
+
   return (
     <div>
       <div
@@ -28,7 +30,7 @@ const ProjectCard = (props: IProjectCard) => {
           {props.previewUrl && (
             <Link
               href={props.previewUrl}
-              target="_blank"
+              target={isExternalLink ? "_blank" : "_self"}
               className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
             >
               <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white " />

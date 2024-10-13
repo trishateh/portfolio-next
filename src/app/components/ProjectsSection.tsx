@@ -5,17 +5,20 @@ import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
+export const projectsData = [
   {
     id: 1,
     title: "NFT Staking",
     description:
       "Stake ERC-721 NFT characters and equip them with ERC-1155 weapons to be eligible to go on quests.",
-    image: "/images/projects/nft-staking.png",
+    image: "/images/projects/nft-staking.jpeg",
     tag: ["All", "Smart Contracts"],
     gitUrl:
       "https://polygonscan.com/address/0x6efd558C9694Be4A40EE260dcA3Db56689f61be7#code",
-    previewUrl: "",
+    slug: "arcaden",
+    previewUrl: "/projects/arcaden",
+    details: "",
+    media: [],
   },
   {
     id: 2,
@@ -26,7 +29,7 @@ const projectsData = [
     tag: ["All", "Smart Contracts"],
     gitUrl:
       "https://polygonscan.com/address/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
-    previewUrl: "https://x.com/arcadenofficial",
+    previewUrl: "/projects/arcaden",
   },
   {
     id: 3,
@@ -37,7 +40,7 @@ const projectsData = [
     tag: ["All", "Smart Contracts"],
     gitUrl:
       "https://bscscan.com/token/0x19e234fbeE6e3cBfd135CE9e0867d8a5729b1136#code",
-    previewUrl: "https://x.com/arcadenofficial",
+    previewUrl: "/projects/arcaden",
   },
   {
     id: 4,
