@@ -19,7 +19,7 @@ const details = [
   },
   {
     asset: "/images/arcaden/shop.mp4",
-    text: "A showcase of the platform&apos;s marketplace where users can open various weapons treasure chests, purchase collectibles, and acquire their own avatars from the Avatar Store.",
+    text: "A showcase of the platforms marketplace where users can open various weapons treasure chests, purchase collectibles, and acquire their own avatars from the Avatar Store.",
   },
   {
     asset: "/images/projects/burn-island.png",
