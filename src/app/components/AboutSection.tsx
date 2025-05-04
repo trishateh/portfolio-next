@@ -12,6 +12,7 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Solidity</li>
         <li>Hardhat</li>
+        <li>Ethers.js</li>
         <li>TypeScript</li>
         <li>JavaScript</li>
         <li>React / NextJS</li>
@@ -19,6 +20,9 @@ const TAB_DATA = [
         <li>Node.js</li>
         <li>NestJS</li>
         <li>PostgreSQL</li>
+        <li>Docker</li>
+        <li>Golang</li>
+        <li>Python</li>
       </ul>
     ),
   },
@@ -27,12 +31,50 @@ const TAB_DATA = [
     id: "experience",
     content: (
       <article>
-        <div className="pl-6">
+        <div className="p-6">
+          <h5 className="text-lg text-white font-semibold">
+            Web3 Full Stack Engineer
+          </h5>
+          <h6 className="text-lg text-gray-300">Lavarage</h6>
+          <p className="text-gray-400">November 2024 - Present</p>
+          <ul className="list-disc pl-8">
+            <li className="text-gray-300">
+              Full stack development of a decentralized trading platform.
+            </li>
+            <li className="text-gray-300">
+              Built and maintained Telegram trading bots.
+            </li>
+            <li className="text-gray-300">
+              Trading platform SDK and API development.
+            </li>
+          </ul>
+        </div>
+
+        <div className="p-6">
+          <h5 className="text-lg text-white font-semibold">
+            Blockchain & Product Engineer
+          </h5>
+          <h6 className="text-lg text-gray-300">Hatched Studios</h6>
+          <p className="text-gray-400">May 2024 - October 2024</p>
+          <ul className="list-disc pl-8">
+            <li className="text-gray-300">
+              Smart contracts and full stack development.
+            </li>
+            <li className="text-gray-300">
+              Built and maintained Telegram mini apps.
+            </li>
+            <li className="text-gray-300">
+              Support senior engineers and led in building out product roadmap.
+            </li>
+          </ul>
+        </div>
+
+        <div className="p-6">
           <h5 className="text-lg text-white font-semibold">
             Blockchain Developer
           </h5>
           <h6 className="text-lg text-gray-300">Salad Ventures</h6>
-          <p className="text-gray-400">April 2022 - Present</p>
+          <p className="text-gray-400">April 2022 - April 2024</p>
           <ul className="list-disc pl-8">
             <li className="text-gray-300">
               Collaborate with developers and designers in building blockchain
