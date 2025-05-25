@@ -42,29 +42,15 @@ const TAB_DATA = [
               Full stack development of a decentralized trading platform.
             </li>
             <li className="text-gray-300">
-              Built and maintained Telegram trading bots.
+              Wrote client SDKs from Solana smart contracts for external
+              integration.
             </li>
             <li className="text-gray-300">
-              Trading platform SDK and API development.
-            </li>
-          </ul>
-        </div>
-
-        <div className="p-6">
-          <h5 className="text-lg text-white font-semibold">
-            Blockchain & Product Engineer
-          </h5>
-          <h6 className="text-lg text-gray-300">Hatched Studios</h6>
-          <p className="text-gray-400">May 2024 - October 2024</p>
-          <ul className="list-disc pl-8">
-            <li className="text-gray-300">
-              Smart contracts and full stack development.
+              Built scalable plug-and-play APIs to onboard partners into our
+              trading infrastructure.
             </li>
             <li className="text-gray-300">
-              Built and maintained Telegram mini apps.
-            </li>
-            <li className="text-gray-300">
-              Support senior engineers and led in building out product roadmap.
+              Developed a Telegram trading bot with a Telegram mini app.
             </li>
           </ul>
         </div>
@@ -74,8 +60,11 @@ const TAB_DATA = [
             Blockchain Developer
           </h5>
           <h6 className="text-lg text-gray-300">Salad Ventures</h6>
-          <p className="text-gray-400">April 2022 - April 2024</p>
+          <p className="text-gray-400">April 2022 - October 2024</p>
           <ul className="list-disc pl-8">
+            <li className="text-gray-300">
+              Smart contracts and full stack development.
+            </li>
             <li className="text-gray-300">
               Collaborate with developers and designers in building blockchain
               related applications and platforms.
