@@ -114,13 +114,33 @@ export const projectsData = [
   },
   {
     id: 11,
-    title: "Lavarage",
+    title: "Lavarage DApp",
     description:
       "A decentralized spot margin trading platform, specializing in long-tail assets.",
     image: "/images/projects/lavarage-dapp.png",
     tag: ["All", "DApps"],
     gitUrl: "https://lavarage.gitbook.io/lavarage",
     previewUrl: "https://app.lavarage.xyz",
+  },
+  {
+    id: 12,
+    title: "Partners Portal",
+    description:
+      "A portal for partners to create and manage API keys, for integrating with the Lavarage API.",
+    image: "/images/projects/partners-portal.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://lavarage-api.readme.io",
+    previewUrl: "https://partners-portal.lavarave.wtf",
+  },
+  {
+    id: 13,
+    title: "Lenders Portal",
+    description:
+      "A decentralized lending platform for liquidity providers to create, monitor and manage loan offers.",
+    image: "/images/projects/lenders-portal.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://lavarage.gitbook.io/lavarage",
+    previewUrl: "https://yield.lavarage.xyz",
   },
 ];
 
