@@ -36,7 +36,7 @@ export const experiences: Experience[] = [
     period: "November 2024 - Present",
     responsibilities: [
       "Full stack development of a decentralized trading platform.",
-      "Created client SDKs from Solana smart contracts for external integration.",
+      "Created client SDKs from smart contracts for external integration.",
       "Built plug-and-play APIs that powered $200M+ in trading and enabled integration of thousands of Solana tokens.",
       "Implemented gRPC services using Go for streaming on-chain data.",
       "Developed a Telegram trading bot with a Telegram mini app.",
