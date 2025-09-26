@@ -11,7 +11,7 @@ const details = [
   },
   {
     asset: "/images/arcaden/home.mp4",
-    text: "The homepage features easy navigation through the platform's feaftures, with auto-rotating banners that showcase the latest updates and offerings. Users are able to explore and seamlessly navigate to new features, games, and rewards with just a click, ensuring they stay up-to-date with everything Arcaden has to offer.",
+    text: "The homepage features easy navigation through the platform's features, with auto-rotating banners that showcase the latest updates and offerings. Users are able to explore and seamlessly navigate to new features, games, and rewards with just a click, ensuring they stay up-to-date with everything Arcaden has to offer.",
   },
   {
     asset: "/images/arcaden/top_up.png",

@@ -8,59 +8,53 @@ import { motion, useInView } from "framer-motion";
 export const projectsData = [
   {
     id: 1,
-    title: "Lavarage",
+    title: "Wave Portal",
     description:
-      "A decentralized spot margin trading platform, specializing in long-tail assets.",
-    image: "/images/projects/lavarage-dapp.png",
+      "The WavePortal is a website where anyone can send me a wave / message and have the data saved on the blockchain.",
+    image: "/images/projects/wave-portal.png",
     tag: ["All", "DApps"],
-    gitUrl: "https://lavarage.gitbook.io/lavarage",
-    previewUrl: "https://app.lavarage.xyz",
+    gitUrl: "https://github.com/trishateh/wave-portal",
+    previewUrl: "",
   },
   {
     id: 2,
-    title: "NFT Staking",
+    title: "NFT Collection",
     description:
-      "Stake ERC-721 NFT characters and equip them with ERC-1155 weapons to be eligible to go on quests.",
-    image: "/images/projects/nft-staking.jpeg",
-    tag: ["All", "Smart Contracts"],
-    gitUrl:
-      "https://polygonscan.com/address/0x6efd558C9694Be4A40EE260dcA3Db56689f61be7#code",
-    slug: "arcaden",
-    previewUrl: "/projects/arcaden",
-    details: "",
-    media: [],
+      "This is a website where users can mint NFTs and view them on OpenSea.",
+    image: "/images/projects/nft-collection.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://github.com/trishateh/NFT-collection",
+    previewUrl: "",
   },
   {
     id: 3,
-    title: "Transform Collectibles Into NFTs",
+    title: "GIF Portal",
     description:
-      "Revolutionize digital collectibles with this NFT collection, featuring lazy minting and signature minting, seamlessly transforming in-app treasures into blockchain assets.",
-    image: "/images/projects/v2minting.png",
-    tag: ["All", "Smart Contracts"],
-    gitUrl:
-      "https://polygonscan.com/address/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
-    previewUrl: "/projects/arcaden",
+      "A Web3 app on Solana built with React & Rust where anyone with a Solana wallet can submit GIF links and immediately view it on my portal.",
+    image: "/images/projects/gif-portal.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://github.com/trishateh/gif-portal",
+    previewUrl: "",
   },
   {
     id: 4,
-    title: "Burn Island",
+    title: "NFT Game",
     description:
-      "Burn Island is a part of Arcaden where users who own V1 G3M NFTs can burn it in exchange for V2 Collectibles.",
-    image: "/images/projects/burn-island.png",
-    tag: ["All", "Smart Contracts"],
-    gitUrl:
-      "https://bscscan.com/token/0x19e234fbeE6e3cBfd135CE9e0867d8a5729b1136#code",
-    previewUrl: "/projects/arcaden",
+      "This is a mini-turn based browser game where players can mint NFTs and make them playable characters in the game.",
+    image: "/images/projects/nft-game.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://github.com/trishateh/nft-game",
+    previewUrl: "",
   },
   {
     id: 5,
-    title: "Domain Service",
+    title: "Solana NFT Drop",
     description:
-      "Ape Name Service is a Domain Name Service on Polygon Layer 2. Mint your own '.ape' domain NFTs and record information about your apes on the blockchain.",
-    image: "/images/projects/domain-service.png",
+      "This is a web app on Solana built with Metaplex that lets users mint and receive NFTs from my handcrafted collection in their wallet.",
+    image: "/images/projects/solana-nft-drop.png",
     tag: ["All", "DApps"],
-    gitUrl: "https://github.com/trishateh/domain-service-backend",
-    previewUrl: "https://domain-service.vercel.app",
+    gitUrl: "https://github.com/trishateh/nft-drop-starter-project",
+    previewUrl: "https://nft-drop-starter-project-neon.vercel.app",
   },
   {
     id: 6,
@@ -74,53 +68,79 @@ export const projectsData = [
   },
   {
     id: 7,
-    title: "Solana NFT Drop",
+    title: "Domain Service",
     description:
-      "This is a web app on Solana built with Metaplex that lets users mint and receive NFTs from my handcrafted collection in their wallet.",
-    image: "/images/projects/solana-nft-drop.png",
+      "Ape Name Service is a Domain Name Service on Polygon Layer 2. Mint your own '.ape' domain NFTs and record information about your apes on the blockchain.",
+    image: "/images/projects/domain-service.png",
     tag: ["All", "DApps"],
-    gitUrl: "https://github.com/trishateh/nft-drop-starter-project",
-    previewUrl: "https://nft-drop-starter-project-neon.vercel.app",
+    gitUrl: "https://github.com/trishateh/domain-service-backend",
+    previewUrl: "https://domain-service.vercel.app",
   },
   {
     id: 8,
-    title: "NFT Game",
+    title: "Burn Island",
     description:
-      "This is a mini-turn based browser game where players can mint NFTs and make them playable characters in the game.",
-    image: "/images/projects/nft-game.png",
-    tag: ["All", "DApps"],
-    gitUrl: "https://github.com/trishateh/nft-game",
-    previewUrl: "",
+      "Burn Island is a part of Arcaden where users who own V1 G3M NFTs can burn it in exchange for V2 Collectibles.",
+    image: "/images/projects/burn-island.png",
+    tag: ["All", "Smart Contracts"],
+    gitUrl:
+      "https://bscscan.com/token/0x19e234fbeE6e3cBfd135CE9e0867d8a5729b1136#code",
+    previewUrl: "/projects/arcaden",
   },
   {
     id: 9,
-    title: "GIF Portal",
+    title: "Transform Collectibles Into NFTs",
     description:
-      "A Web3 app on Solana built with React & Rust where anyone with a Solana wallet can submit GIF links and immediately view it on my portal.",
-    image: "/images/projects/gif-portal.png",
-    tag: ["All", "DApps"],
-    gitUrl: "https://github.com/trishateh/gif-portal",
-    previewUrl: "",
+      "Revolutionize digital collectibles with this NFT collection, featuring lazy minting and signature minting, seamlessly transforming in-app treasures into blockchain assets.",
+    image: "/images/projects/v2minting.png",
+    tag: ["All", "Smart Contracts"],
+    gitUrl:
+      "https://polygonscan.com/address/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
+    previewUrl: "/projects/arcaden",
   },
   {
     id: 10,
-    title: "NFT Collection",
+    title: "NFT Staking",
     description:
-      "This is a website where users can mint NFTs and view them on OpenSea.",
-    image: "/images/projects/nft-collection.png",
-    tag: ["All", "DApps"],
-    gitUrl: "https://github.com/trishateh/NFT-collection",
-    previewUrl: "",
+      "Stake ERC-721 NFT characters and equip them with ERC-1155 weapons to be eligible to go on quests.",
+    image: "/images/projects/nft-staking.jpeg",
+    tag: ["All", "Smart Contracts"],
+    gitUrl:
+      "https://polygonscan.com/address/0x6efd558C9694Be4A40EE260dcA3Db56689f61be7#code",
+    slug: "arcaden",
+    previewUrl: "/projects/arcaden",
+    details: "",
+    media: [],
   },
   {
     id: 11,
-    title: "Wave Portal",
+    title: "Lavarage DApp",
     description:
-      "The WavePortal is a website where anyone can send me a wave / message and have the data saved on the blockchain.",
-    image: "/images/projects/wave-portal.png",
+      "A decentralized spot margin trading platform, specializing in long-tail assets.",
+    image: "/images/projects/lavarage-dapp.png",
     tag: ["All", "DApps"],
-    gitUrl: "https://github.com/trishateh/wave-portal",
-    previewUrl: "",
+    gitUrl: "https://lavarage.gitbook.io/lavarage",
+    previewUrl: "https://app.lavarage.xyz",
+  },
+  {
+    id: 12,
+    title: "Partners Portal",
+    description:
+      "A portal for partners to create and manage API keys, for integrating with the Lavarage API.",
+    image: "/images/projects/partners-portal.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://lavarage-api.readme.io",
+    previewUrl: "https://partners-portal.lavarave.wtf",
+  },
+  {
+    id: 13,
+    title: "Lenders Portal",
+    description:
+      "A decentralized lending platform for liquidity providers to create, monitor and manage loan offers.",
+    image: "/images/projects/lenders-portal.png",
+    tag: ["All", "DApps"],
+    gitUrl: "https://lavarage.gitbook.io/lavarage",
+    previewUrl: "https://yield.lavarage.xyz",
   },
 ];
 
@@ -133,9 +153,9 @@ const ProjectsSection = () => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
+  const filteredProjects = projectsData
+    .filter((project) => project.tag.includes(tag))
+    .sort((a, b) => b.id - a.id);
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
