@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import NavLink from "./NavLink";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import MenuOverlay from "./MenuOverlay";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import Container from "./ui/Container";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   {
@@ -13,7 +14,7 @@ const navLinks = [
     path: "#about",
   },
   {
-    title: "Projects",
+    title: "Projects", 
     path: "#projects",
   },
   {
@@ -24,45 +25,90 @@ const navLinks = [
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100 ">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-primary-500 to-secondary-500 font-semibold italic"
-        >
-          <Image src="/images/logo.png" alt="logo" height={200} width={200} />
-        </Link>
-        <div className="mobile-menu block md:hidden">
-          {!navbarOpen ? (
-            <button
-              onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded  border-slate-200 text-slate-200 hover:text-white hover:border-white"
-            >
-              <Bars3Icon className="h-5 w-5" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded  border-slate-200 text-slate-200 hover:text-white hover:border-white"
-            >
-              <XMarkIcon className="h-5 w-5" />
-            </button>
-          )}
-        </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.path} title={link.title} />
-              </li>
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled 
+          ? "bg-brand-surface2/80 backdrop-blur-md border-b border-slate-800" 
+          : "bg-transparent"
+      )}
+    >
+      <Container>
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/images/logo.svg" 
+              alt="Trisha Teh - Web3 Developer" 
+              width={120} 
+              height={40}
+              className="hover:opacity-80 transition-opacity duration-200"
+            />
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.path}
+                href={link.path}
+                className="relative text-slate-300 hover:text-white transition-colors duration-200 group"
+              >
+                {link.title}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-200 group-hover:w-full"></span>
+              </a>
             ))}
-          </ul>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+          >
+            {navbarOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
-    </nav>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {navbarOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-slate-800"
+            >
+              <div className="py-4 space-y-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.path}
+                    href={link.path}
+                    onClick={() => setNavbarOpen(false)}
+                    className="block text-slate-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.title}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Container>
+    </motion.nav>
   );
 };
 

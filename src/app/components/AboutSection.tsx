@@ -1,107 +1,140 @@
 "use client";
 
-import React, { useState, useTransition } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import TabButton from "./TabButton";
-import SkillsList from "./SkillsList";
-import ExperienceSection from "./ExperienceSection";
-import AchievementsList from "./AchievementsList";
-import { skills, experiences, achievements } from "../data/aboutData";
+import { motion, useInView } from "framer-motion";
+import { User, Code, Award } from "lucide-react";
+import Container from "./ui/Container";
+import Section from "./ui/Section";
+import Chip from "./ui/Chip";
+import Timeline from "./ui/Timeline";
+import SkillsGrid from "./ui/SkillsGrid";
+import AchievementsList from "./ui/AchievementsList";
+import { skillCategories, experiences, achievements } from "../data/aboutData";
+import { fadeUp, slideInLeft, slideInRight, stagger } from "@/lib/motion";
 
-interface TabData {
-  title: string;
-  id: string;
-  content: React.ReactNode;
-}
+type TabType = "skills" | "experience" | "achievements";
 
-const TAB_DATA: TabData[] = [
-  {
-    title: "Skills",
-    id: "skills",
-    content: <SkillsList skills={skills} />,
-  },
-  {
-    title: "Experience",
-    id: "experience",
-    content: <ExperienceSection experiences={experiences} />,
-  },
-  {
-    title: "Achievements",
-    id: "achievements",
-    content: <AchievementsList achievements={achievements} />,
-  },
+const tabs = [
+  { id: "skills" as TabType, label: "Skills", icon: Code },
+  { id: "experience" as TabType, label: "Experience", icon: User },
+  { id: "achievements" as TabType, label: "Achievements", icon: Award },
 ];
 
-const AboutSection = () => {  
-  const [tab, setTab] = useState<string>("skills");
-  const [isPending, startTransition] = useTransition();
+const AboutSection = () => {
+  const [activeTab, setActiveTab] = useState<TabType>("skills");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-  const handleTabChange = (id: string) => {
-    startTransition(() => {
-      setTab(id);
-    });
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case "skills":
+        return <SkillsGrid categories={skillCategories} />;
+      case "experience":
+        return <Timeline items={experiences} />;
+      case "achievements":
+        return <AchievementsList achievements={achievements} />;
+      default:
+        return null;
+    }
   };
 
   return (
-    <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image
-          src="/images/about.png"
-          alt="about image"
-          width={500}
-          height={500}
-          quality={100}
-        />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
-            As a former medical doctor turned blockchain developer, my journey
-            from healthcare to the forefront of technology has been driven by a
-            fascination with the transformative power of digital solutions.
-            Transitioning from diagnosing patients to debugging code, I have
-            leveraged my analytical skills and attention to detail in both
-            realms. Now, as a software engineer specializing in blockchain
-            technology, I am committed to continuous learning and innovation. My
-            aim is to contribute to projects that push the boundaries of what is
-            possible, harnessing blockchain&apos;s potential to create secure,
-            transparent, and efficient systems.
-          </p>
-          <div className="flex flex-row md:justify-start justify-center mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              {" "}
-              Skills{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("experience")}
-              active={tab === "experience"}
-            >
-              {" "}
-              Experience{" "}
-            </TabButton>
-            {/* <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              {" "}
-              Education{" "}
-            </TabButton> */}
-            <TabButton
-              selectTab={() => handleTabChange("achievements")}
-              active={tab === "achievements"}
-            >
-              {" "}
-              Achievements{" "}
-            </TabButton>
+    <Section id="about">
+      <Container>
+        <motion.div
+          ref={ref}
+          variants={stagger}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
+          {/* Header */}
+          <motion.div variants={fadeUp} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              About <span className="gradient-text">Me</span>
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              From medical doctor to blockchain developer — a journey driven by 
+              innovation and the transformative power of technology.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left side - Image and story */}
+            <motion.div variants={slideInLeft} className="lg:col-span-5">
+              <div className="relative mb-8">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/10 to-brand-blue/10 rounded-2xl blur-2xl scale-110"></div>
+                
+                {/* Image */}
+                <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-700 bg-brand-surface2">
+                  <Image
+                    src="/images/about.png"
+                    alt="Trisha Teh - About"
+                    width={500}
+                    height={500}
+                    className="w-full h-auto"
+                    quality={100}
+                  />
+                </div>
+              </div>
+
+              {/* Story */}
+              <div className="space-y-4 text-slate-300 leading-relaxed">
+                <p>
+                  As a former medical doctor turned blockchain developer, my journey 
+                  from healthcare to the forefront of technology has been driven by a 
+                  fascination with the transformative power of digital solutions.
+                </p>
+                <p>
+                  Transitioning from diagnosing patients to debugging code, I have 
+                  leveraged my analytical skills and attention to detail in both realms. 
+                  Now, as a software engineer specializing in blockchain technology, 
+                  I am committed to continuous learning and innovation.
+                </p>
+                <p>
+                  My aim is to contribute to projects that push the boundaries of what is 
+                  possible, harnessing blockchain's potential to create secure, 
+                  transparent, and efficient systems.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right side - Tabs and content */}
+            <motion.div variants={slideInRight} className="lg:col-span-7">
+              {/* Tab Navigation */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  return (
+                    <Chip
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      active={activeTab === tab.id}
+                      variant={activeTab === tab.id ? "accent" : "default"}
+                      className="cursor-pointer !px-4 !py-2"
+                    >
+                      <Icon className="w-4 h-4 mr-2" />
+                      {tab.label}
+                    </Chip>
+                  );
+                })}
+              </div>
+
+              {/* Tab Content */}
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {renderTabContent()}
+              </motion.div>
+            </motion.div>
           </div>
-          <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab)?.content}
-          </div>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </Container>
+    </Section>
   );
 };
 

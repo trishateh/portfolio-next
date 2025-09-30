@@ -88,7 +88,7 @@ export function FeedbackForm() {
       </div>
       <button
         type="submit"
-        className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+        className="bg-brand-accent hover:bg-brand-accentDark text-white font-medium py-2.5 px-5 rounded-full"
         disabled={status === "pending"}
       >
         Send Message
