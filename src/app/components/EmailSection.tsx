@@ -18,7 +18,7 @@ const socialLinks = [
     color: "hover:text-white",
   },
   {
-    name: "LinkedIn", 
+    name: "LinkedIn",
     href: "https://linkedin.com/in/trishateh",
     icon: Linkedin,
     color: "hover:text-blue-400",
@@ -50,8 +50,9 @@ const EmailSection = () => {
               Get In <span className="gradient-text">Touch</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Whether you have a project in mind, want to collaborate, or just want to say hi, 
-              I'd love to hear from you. Let's build something amazing together!
+              Whether you have a project in mind, want to collaborate, or just
+              want to say hi, I'd love to hear from you. Let's build something
+              amazing together!
             </p>
           </motion.div>
 
@@ -67,13 +68,14 @@ const EmailSection = () => {
                     Let's start a conversation
                   </h3>
                   <p className="text-slate-400 leading-relaxed mb-6">
-                    I'm always interested in hearing about new opportunities, 
-                    interesting projects, and ways to collaborate in the Web3 space.
+                    I'm always interested in hearing about new opportunities,
+                    interesting projects, and ways to collaborate in the Web3
+                    space.
                   </p>
                 </div>
 
                 {/* Direct contact */}
-                <div className="mb-8">
+                {/* <div className="mb-8">
                   <Button
                     href="mailto:hello@trishateh.com"
                     variant="outline"
@@ -82,7 +84,7 @@ const EmailSection = () => {
                     <Mail className="w-5 h-5 mr-3" />
                     hello@trishateh.com
                   </Button>
-                </div>
+                </div> */}
 
                 {/* Social links */}
                 <div>
