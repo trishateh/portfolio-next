@@ -1,0 +1,17 @@
+{
+  "name": "Trisha Teh - Web3 Developer Portfolio",
+  "short_name": "Trisha Teh",
+  "description": "Former medical doctor turned blockchain developer, building secure and scalable Web3 applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F14",
+  "theme_color": "#4FD1C5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

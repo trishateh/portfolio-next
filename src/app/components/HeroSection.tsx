@@ -4,78 +4,144 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import { Github, Linkedin, ExternalLink } from "lucide-react";
+import Container from "./ui/Container";
+import Section from "./ui/Section";
+import Button from "./ui/Button";
+import GradientBG from "./ui/GradientBG";
+import { fadeUp, slideInLeft, slideInRight } from "@/lib/motion";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
-        >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
-            </span>
-            <br />
-            <span className="inline-block h-[80px] md:h-[100px] lg:h-[180px] overflow-hidden align-top">
-              <TypeAnimation
-                sequence={[
-                  "Trisha",
-                  1000,
-                  "Web3 Developer",
-                  1000,
-                  "Blockchain Developer",
-                  1000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-              />
-            </span>
-          </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Highly motivated software engineer with the ability to learn and
-            collaborate in the face of rapidly changing environments and
-            technological advancement.
-          </p>
-          <div>
-            <a
-              href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+    <GradientBG showOrbs className="min-h-screen flex items-center">
+      <Container>
+        <Section spacing="lg" className="!py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Content */}
+            <motion.div
+              variants={slideInLeft}
+              initial="hidden"
+              animate="show"
+              className="lg:col-span-7 text-center lg:text-left"
             >
-              Contact Me
-            </a>
-            {/* <Link
-              href="/"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
+              {/* Greeting */}
+              <motion.div variants={fadeUp} className="mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-surface2 border border-slate-700 text-slate-300 text-sm font-medium mb-4">
+                  👋 Hello, I&apos;m
+                </span>
+              </motion.div>
+
+              {/* Main heading */}
+              <motion.h1
+                variants={fadeUp}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6"
+              >
+                <span className="gradient-text">Trisha</span>
+                <br />
+                <span className="text-white">
+                  <TypeAnimation
+                    sequence={[
+                      "Blockchain Developer",
+                      2000,
+                      "Web3 Developer",
+                      2000,
+                      "Full Stack Developer",
+                      2000,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                    className="inline-block"
+                  />
+                </span>
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                variants={fadeUp}
+                className="text-slate-400 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0"
+              >
+                Highly motivated software engineer with the ability to learn and
+                collaborate in the face of rapidly changing environments and
+                technological advancement.
+              </motion.p>
+
+              {/* KPI Stats */}
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 text-sm text-slate-400"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
+                  <span>20+ Projects</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-brand-blue rounded-full"></div>
+                  <span>5+ Blockchains</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
+                  <span>4+ Years Experience</span>
+                </div>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              >
+                <Button href="#projects" size="lg">
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  View Projects
+                </Button>
+                <div className="flex gap-3">
+                  <Button
+                    href="https://github.com/trishateh"
+                    variant="outline"
+                    external
+                    className="!px-4"
+                  >
+                    <Github className="w-5 h-5" />
+                  </Button>
+                  <Button
+                    href="https://linkedin.com/in/trishateh"
+                    variant="outline"
+                    external
+                    className="!px-4"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </Button>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Hero Image */}
+            <motion.div
+              variants={slideInRight}
+              initial="hidden"
+              animate="show"
+              className="lg:col-span-5 flex justify-center lg:justify-end"
             >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
-              </span>
-            </Link> */}
+              <div className="relative">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/20 to-brand-blue/20 rounded-full blur-3xl scale-110"></div>
+
+                {/* Image container */}
+                <div className="relative w-[280px] h-[280px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden ring-1 ring-slate-700 bg-brand-surface2">
+                  <Image
+                    src="/images/hero-image.gif"
+                    alt="Trisha Teh - Blockchain Developer"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-10 lg:mt-0"
-        >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative mt-4">
-            <Image
-              src="/images/hero-image.gif"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-lg bg-rgba(0, 0, 0, 0)"
-              width={350}
-              height={350}
-            />
-          </div>
-        </motion.div>
-      </div>
-    </section>
+        </Section>
+      </Container>
+    </GradientBG>
   );
 };
 
