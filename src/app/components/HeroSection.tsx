@@ -27,7 +27,7 @@ const HeroSection = () => {
               {/* Greeting */}
               <motion.div variants={fadeUp} className="mb-6">
                 <span className="inline-flex items-center px-4 py-2 rounded-full bg-brand-surface2 border border-slate-700 text-slate-300 text-sm font-medium mb-4">
-                  👋 Hello, I'm
+                  👋 Hello, I&apos;m
                 </span>
               </motion.div>
 
@@ -73,7 +73,7 @@ const HeroSection = () => {
               >
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
-                  <span>13+ Projects</span>
+                  <span>20+ Projects</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-brand-blue rounded-full"></div>
@@ -81,7 +81,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
-                  <span>3+ Years Experience</span>
+                  <span>4+ Years Experience</span>
                 </div>
               </motion.div>
 
