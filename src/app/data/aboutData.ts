@@ -93,7 +93,8 @@ export const achievements: Achievement[] = [
   {
     name: "Speaker at Solana Summit 2025",
     year: "2025",
-    description: "Represented Lavarage as Head of Product",
+    description:
+      "Main stage speaker at Solana Summit 2025 representing Lavarage",
   },
   {
     name: "Certified in Cybersecurity (CC) Training",
