@@ -14,7 +14,7 @@ const navLinks = [
     path: "#about",
   },
   {
-    title: "Projects", 
+    title: "Projects",
     path: "#projects",
   },
   {
@@ -37,13 +37,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled 
-          ? "bg-brand-surface2/80 backdrop-blur-md border-b border-slate-800" 
+        scrolled
+          ? "bg-brand-surface2/80 backdrop-blur-md border-b border-slate-800"
           : "bg-transparent"
       )}
     >
@@ -51,10 +51,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image 
-              src="/images/logo.svg" 
-              alt="Trisha Teh - Web3 Developer" 
-              width={120} 
+            <Image
+              src="/images/logo.svg"
+              alt="Trisha Teh - Web3 Developer"
+              width={120}
               height={40}
               className="hover:opacity-80 transition-opacity duration-200"
             />
@@ -87,23 +87,26 @@ const Navbar = () => {
         <AnimatePresence>
           {navbarOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-slate-800"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 right-0 bg-brand-surface2/95 backdrop-blur-md border-b border-slate-800 md:hidden"
             >
-              <div className="py-4 space-y-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.path}
-                    href={link.path}
-                    onClick={() => setNavbarOpen(false)}
-                    className="block text-slate-300 hover:text-white transition-colors duration-200"
-                  >
-                    {link.title}
-                  </a>
-                ))}
-              </div>
+              <Container>
+                <div className="py-6 space-y-4">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.path}
+                      href={link.path}
+                      onClick={() => setNavbarOpen(false)}
+                      className="block text-slate-300 hover:text-white transition-colors duration-200 py-2"
+                    >
+                      {link.title}
+                    </a>
+                  ))}
+                </div>
+              </Container>
             </motion.div>
           )}
         </AnimatePresence>
