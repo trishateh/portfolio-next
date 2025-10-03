@@ -13,7 +13,10 @@ import { fadeUp, slideInLeft, slideInRight } from "@/lib/motion";
 
 const HeroSection = () => {
   return (
-    <GradientBG showOrbs className="min-h-screen flex items-center">
+    <GradientBG
+      showOrbs
+      className="min-h-screen flex items-center pt-24 md:pt-0"
+    >
       <Container>
         <Section spacing="lg" className="!py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
