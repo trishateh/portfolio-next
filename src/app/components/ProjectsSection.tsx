@@ -9,12 +9,13 @@ import Section from "./ui/Section";
 import Chip from "./ui/Chip";
 import { fadeUp, stagger } from "@/lib/motion";
 
-type FilterType = "all" | "dapp" | "smart-contract";
+type FilterType = "all" | "dapp" | "smart-contract" | "web";
 
 const filters: { label: string; value: FilterType }[] = [
   { label: "All", value: "all" },
   { label: "DApps", value: "dapp" },
-  { label: "Smart Contracts", value: "smart-contract" }
+  { label: "Smart Contracts", value: "smart-contract" },
+  { label: "Web", value: "web" },
 ];
 
 const ProjectsSection = () => {
@@ -51,8 +52,8 @@ const ProjectsSection = () => {
               Featured <span className="gradient-text">Projects</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              A collection of blockchain projects showcasing expertise in DeFi, 
-              smart contracts, and full-stack Web3 development.
+              A collection of projects spanning DeFi protocols, smart contracts,
+              full-stack Web3 development, and web applications.
             </p>
           </motion.div>
 
@@ -84,6 +85,7 @@ const ProjectsSection = () => {
                 key={project.id}
                 variants={fadeUp}
                 transition={{ delay: index * 0.1 }}
+                className="h-full"
               >
                 <ProjectCard project={project} />
               </motion.div>

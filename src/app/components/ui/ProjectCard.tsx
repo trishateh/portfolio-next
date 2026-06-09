@@ -17,11 +17,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const categoryColors = {
     dapp: "accent",
     "smart-contract": "blue",
-    infra: "default",
+    web: "default",
   } as const;
 
   return (
-    <motion.div whileHover={hoverLift} className="group">
+    <motion.div whileHover={hoverLift} className="group h-full">
       <Card className="overflow-hidden h-full flex flex-col">
         {/* Hero Media */}
         <div className="aspect-video overflow-hidden rounded-t-2xl bg-slate-800 relative">
@@ -50,6 +50,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <span className="text-xs font-medium text-white">
                 {project.category === "smart-contract"
                   ? "Smart Contract"
+                  : project.category === "web"
+                  ? "Web App"
                   : "DApp"}
               </span>
             </div>

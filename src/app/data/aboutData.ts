@@ -10,13 +10,18 @@ export interface Achievement {
 export const skillCategories: SkillCategory[] = [
   {
     title: "Smart Contracts & Blockchain",
-    skills: ["Solidity", "Hardhat", "IPFS"],
+    skills: ["Solidity", "Hardhat", "Foundry", "IPFS"],
     variant: "accent",
   },
   {
     title: "Frontend & Web3",
     skills: ["React", "Next.js", "TypeScript", "Ethers.js", "Web3.js", "Wagmi"],
     variant: "blue",
+  },
+  {
+    title: "Mobile",
+    skills: ["React Native", "Expo", "EAS", "iOS", "Android"],
+    variant: "default",
   },
   {
     title: "Backend & Infrastructure",
@@ -34,7 +39,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "Languages & Tools",
-    skills: ["JavaScript", "TypeScript", "Golang", "Python", "Git"],
+    skills: ["JavaScript", "TypeScript", "Golang", "Python", "Git", "Shopify", "Wordpress"],
     variant: "default",
   },
 ];
@@ -42,8 +47,20 @@ export const skillCategories: SkillCategory[] = [
 export const experiences: TimelineItem[] = [
   {
     title: "Web3 Full Stack Engineer",
+    company: "Yei Finance",
+    period: "October 2025 - Present",
+    location: "Taiwan, Remote",
+    current: true,
+    responsibilities: [
+      "Built and maintained production-grade DeFi applications across lending, borrowing, and yield workflows.",
+      "Delivered end-to-end features spanning frontend, backend services, and smart-contract integrations.",
+      "Implemented and executed on-chain interactions with attention to safety and reliability.",
+    ],
+  },
+  {
+    title: "Web3 Full Stack Engineer",
     company: "Lavarage",
-    period: "November 2024 - Present",
+    period: "November 2024 - October 2025",
     location: "Singapore, Remote",
     current: true,
     responsibilities: [
