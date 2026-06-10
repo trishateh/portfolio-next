@@ -5,7 +5,7 @@ export const ProjectSchema = z.object({
   id: z.number(),
   slug: z.string(),
   title: z.string(),
-  category: z.enum(["dapp", "smart-contract"]),
+  category: z.enum(["dapp", "smart-contract", "web"]),
   summary: z.string(),
   description: z.string(),
   stack: z.array(z.string()),
@@ -304,6 +304,73 @@ export const projects: Project[] = [
     featured: true,
     impact: [
       "Facilitated loan offer creation, real-time monitoring and risk assessment",
+    ],
+  },
+  {
+    id: 14,
+    slug: "mapacs-asm-2026",
+    title: "MAPACS Annual Scientific Congress 2026",
+    category: "web",
+    summary:
+      "Full digital event infrastructure for the MAPACS Annual Scientific Congress 2026.",
+    description:
+      "Built the complete digital event infrastructure for MAPACS ASM 2026, including a Next.js conference website and a Shopify storefront for merchandise sales and delegate registration.",
+    stack: ["Next.js", "TypeScript", "Shopify", "React"],
+    heroMedia: {
+      type: "image",
+      src: "/images/projects/mapacs.png",
+    },
+    links: {
+      demo: "https://mapacs.vercel.app/events/asm-2026",
+    },
+    impact: [
+      "Delivered full conference digital infrastructure end-to-end",
+      "Integrated Shopify storefront for merchandise and delegate registration",
+    ],
+  },
+  {
+    id: 15,
+    slug: "yei-finance",
+    title: "Yei Finance",
+    category: "dapp",
+    summary:
+      "A production-grade DeFi super-app on Sei spanning money market, cross-chain bridge, and token swap.",
+    description:
+      "Full-stack DeFi platform on Sei covering the full spectrum: money market for lending and borrowing, a cross-chain bridge, and YeiSwap for token swaps.",
+    stack: ["React", "TypeScript", "Solidity"],
+    heroMedia: {
+      type: "image",
+      src: "/images/projects/yei-finance.png",
+    },
+    links: {
+      demo: "https://app.yei.finance",
+    },
+    featured: true,
+    impact: [
+      "Ownership across frontend, backend services, and smart contract integrations",
+    ],
+  },
+  {
+    id: 16,
+    slug: "clovis",
+    title: "Clovis",
+    category: "dapp",
+    summary:
+      "A cross-chain DeFi platform for lending and borrowing across multiple blockchain networks, currently live on testnet.",
+    description:
+      "Cross-chain DeFi infrastructure enabling seamless lending and borrowing across multiple blockchain networks. Designed for capital efficiency and interoperability, currently deployed on testnet.",
+    stack: ["React", "TypeScript", "Solidity"],
+    heroMedia: {
+      type: "image",
+      src: "/images/projects/clovis-testnet.png",
+    },
+    links: {
+      demo: "https://testnet.clovis.network",
+    },
+    featured: true,
+    impact: [
+      "Built cross-chain DeFi lending and borrowing platform from the ground up",
+      "Deployed on testnet with multi-chain interoperability across networks",
     ],
   },
 ];

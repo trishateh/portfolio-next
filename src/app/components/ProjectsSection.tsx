@@ -9,12 +9,13 @@ import Section from "./ui/Section";
 import Chip from "./ui/Chip";
 import { fadeUp, stagger } from "@/lib/motion";
 
-type FilterType = "all" | "dapp" | "smart-contract";
+type FilterType = "all" | "dapp" | "smart-contract" | "web";
 
 const filters: { label: string; value: FilterType }[] = [
   { label: "All", value: "all" },
   { label: "DApps", value: "dapp" },
-  { label: "Smart Contracts", value: "smart-contract" }
+  { label: "Smart Contracts", value: "smart-contract" },
+  { label: "Web", value: "web" },
 ];
 
 const ProjectsSection = () => {
@@ -24,12 +25,15 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true });
 
   const allProjects = getAllProjects();
-  
-  const filteredProjects = activeFilter === "all" 
-    ? allProjects 
-    : allProjects.filter(project => project.category === activeFilter);
 
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 9);
+  const filteredProjects =
+    activeFilter === "all"
+      ? allProjects
+      : allProjects.filter((project) => project.category === activeFilter);
+
+  const displayedProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 9);
 
   // Reset showAll when filter changes
   useEffect(() => {
@@ -51,13 +55,13 @@ const ProjectsSection = () => {
               Featured <span className="gradient-text">Projects</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              A collection of blockchain projects showcasing expertise in DeFi, 
-              smart contracts, and full-stack Web3 development.
+              A collection of projects spanning DeFi protocols, smart contracts,
+              full-stack Web3 development, web & mobile applications.
             </p>
           </motion.div>
 
           {/* Filters */}
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             className="flex flex-wrap justify-center gap-3 mb-12"
           >
@@ -75,7 +79,7 @@ const ProjectsSection = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <motion.div 
+          <motion.div
             variants={stagger}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
@@ -84,6 +88,7 @@ const ProjectsSection = () => {
                 key={project.id}
                 variants={fadeUp}
                 transition={{ delay: index * 0.1 }}
+                className="h-full"
               >
                 <ProjectCard project={project} />
               </motion.div>
@@ -94,9 +99,10 @@ const ProjectsSection = () => {
           {!showAll && filteredProjects.length > 9 && (
             <motion.div variants={fadeUp} className="text-center mt-12">
               <p className="text-slate-400 mb-4">
-                Showing {displayedProjects.length} of {filteredProjects.length} projects
+                Showing {displayedProjects.length} of {filteredProjects.length}{" "}
+                projects
               </p>
-              <button 
+              <button
                 onClick={() => setShowAll(true)}
                 className="text-brand-accent hover:text-brand-accentDark transition-colors font-medium"
               >
@@ -108,7 +114,7 @@ const ProjectsSection = () => {
           {/* Show Less CTA */}
           {showAll && filteredProjects.length > 9 && (
             <motion.div variants={fadeUp} className="text-center mt-12">
-              <button 
+              <button
                 onClick={() => setShowAll(false)}
                 className="text-brand-accent hover:text-brand-accentDark transition-colors font-medium"
               >

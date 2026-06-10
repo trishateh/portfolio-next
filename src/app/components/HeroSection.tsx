@@ -84,7 +84,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
-                  <span>4+ Years Experience</span>
+                  <span>5+ Years Experience</span>
                 </div>
               </motion.div>
 
