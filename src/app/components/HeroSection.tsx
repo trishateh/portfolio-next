@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import Container from "./ui/Container";
@@ -8,10 +9,16 @@ import Section from "./ui/Section";
 import Button from "./ui/Button";
 import GradientBG from "./ui/GradientBG";
 import Magnetic from "./ui/Magnetic";
-import HeroArt from "./HeroArt";
 import { stagger, fadeUp, heroLineStagger, heroLine } from "@/lib/motion";
 
-const stats = ["5+ yrs", "20+ projects", "5 chains", "$200M+ volume"];
+const PhysicsPlayground = dynamic(() => import("./PhysicsPlayground"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[420px] md:h-[480px] w-full rounded-2xl border border-brand-line bg-brand-surface/40" />
+  ),
+});
+
+const stats = ["5+ yrs", "20+ products", "$200M+ processed", "300K+ users"];
 
 const HeroSection = () => {
   return (
@@ -24,14 +31,14 @@ const HeroSection = () => {
               variants={stagger}
               initial="hidden"
               animate="show"
-              className="order-1 lg:col-span-7 text-center lg:text-left"
+              className="order-1 lg:col-span-6 text-center lg:text-left"
             >
               {/* Eyebrow */}
               <motion.p
                 variants={fadeUp}
                 className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-6"
               >
-                {"// senior web3 engineer · ex-medical doctor"}
+                senior full-stack engineer · ex-medical doctor
               </motion.p>
 
               {/* Main heading — two masked reveal lines */}
@@ -41,12 +48,12 @@ const HeroSection = () => {
               >
                 <span className="block overflow-hidden">
                   <motion.span variants={heroLine} className="block">
-                    Building the
+                    Full-stack engineer.
                   </motion.span>
                 </span>
                 <span className="block overflow-hidden">
                   <motion.span variants={heroLine} className="block">
-                    <span className="gradient-text">on-chain web.</span>
+                    Zero to <span className="gradient-text">shipped.</span>
                   </motion.span>
                 </span>
               </motion.h1>
@@ -56,25 +63,18 @@ const HeroSection = () => {
                 variants={fadeUp}
                 className="text-slate-400 text-lg max-w-xl mx-auto lg:mx-0 mb-8"
               >
-                Trisha Teh — full-stack engineer shipping DeFi and web3 products
-                across 5+ chains. Formerly a medical doctor.
+                Trisha Teh — five years shipping products end to end, from DeFi
+                protocols to e-commerce and mobile. Formerly a medical doctor.
               </motion.p>
 
-              {/* Tx-style stat line */}
+              {/* Stat line */}
               <motion.div
                 variants={fadeUp}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 font-mono text-sm text-slate-500 mb-8"
               >
-                <span className="inline-flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-accent opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-accent" />
-                  </span>
-                  mainnet
-                </span>
-                {stats.map((stat) => (
+                {stats.map((stat, i) => (
                   <React.Fragment key={stat}>
-                    <span aria-hidden="true">·</span>
+                    {i > 0 && <span aria-hidden="true">·</span>}
                     <span>{stat}</span>
                   </React.Fragment>
                 ))}
@@ -113,9 +113,9 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Hero art */}
-            <div className="order-2 lg:col-span-5 flex justify-center">
-              <HeroArt />
+            {/* Interactive physics playground */}
+            <div className="order-2 lg:col-span-6 w-full">
+              <PhysicsPlayground />
             </div>
           </div>
         </Section>

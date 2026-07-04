@@ -43,10 +43,10 @@ const AboutSection = () => {
           {/* Header */}
           <motion.div variants={revealUp} className="mb-12">
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent">
-              {"// about"}
+              about
             </p>
             <h2 className="font-display text-display-lg text-white">
-              From medicine to <span className="gradient-text">mainnet</span>
+              A different kind of operating system
             </h2>
           </motion.div>
 
@@ -72,16 +72,17 @@ const AboutSection = () => {
                 <div className="space-y-3 leading-relaxed text-slate-300/90">
                   <p>
                     I started out as a medical doctor — trained to reason under
-                    pressure and get the details right. In 2021 I taught myself
-                    to code and moved into blockchain full-time, trading
-                    diagnostics for distributed systems.
+                    pressure and get the small details right. In 2021 I taught
+                    myself to code and switched careers, trading diagnostics for
+                    building software full-time.
                   </p>
                   <p>
-                    Five years on, I&apos;m a senior full-stack engineer
-                    shipping production DeFi and web3 across multiple chains,
-                    from smart contracts to the interfaces on top of them. The
-                    clinical instinct for precision and consequence never left;
-                    it just found a new domain.
+                    Five years on, I&apos;m a senior full-stack engineer who
+                    ships across web2 and web3 — from DeFi protocols and smart
+                    contracts to e-commerce platforms and mobile apps, plus the
+                    interfaces people actually use. The clinical instinct for
+                    precision and consequence never left; it just found a new
+                    domain.
                   </p>
                 </div>
               </div>

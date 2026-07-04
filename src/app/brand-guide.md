@@ -1,7 +1,9 @@
 # Trisha Teh — Brand Guide (v2)
 
-A bold, geometric theme for a blockchain / web3 developer portfolio. Solana-inspired
-purple → blue → green on near-black, with oversized display type and monospace accents.
+A bold, geometric theme for a product-engineering / web3 developer portfolio. A soft
+orchid → indigo → aqua spectrum on near-black, with oversized display type and monospace
+accents. The brand reads modern product-engineering, not crypto — it appeals to web2 and
+web3 employers alike.
 
 ## 1) Brand Essence
 
@@ -12,47 +14,53 @@ purple → blue → green on near-black, with oversized display type and monospa
 
 ## 2) Color System
 
-Dark-first, near-black shell with a signature purple → blue → green spectrum. Accents
-carry meaning: purple is the workhorse, green signals "live".
+Dark-first, near-black shell with a signature orchid → indigo → aqua spectrum, tuned to a
+soft mesh-gradient feel. Accents carry meaning: purple is the workhorse, aqua signals
+status / "live" (used sparingly — it replaced the old neon green).
 
 ### Palette
 
-| Token             | Hex       | Role                                                        |
-| ----------------- | --------- | ----------------------------------------------------------- |
-| `brand.bg`        | `#060609` | App shell background (near-black)                           |
-| `brand.surface`   | `#0E0E14` | Cards / sections                                            |
-| `brand.surface2`  | `#15151E` | Elevated surfaces — modals, nav, nested tiles              |
-| `brand.line`      | `#26262F` | Hairlines, dividers, card borders                          |
-| `brand.line2`     | `#3A3A46` | Hover / active borders                                      |
-| `brand.purple`    | `#9945FF` | Workhorse accent — link hover, focus rings, active chips   |
-| `brand.purpleDark`| `#7B2FE0` | Purple hover / pressed states                              |
-| `brand.blue`      | `#5497D5` | Gradient midpoint only                                     |
-| `brand.teal`      | `#43B4CA` | Gradient midpoint only (brand-gradient-br)                 |
-| `brand.accent`    | `#14F195` | "Live / confirmed" green — status dots, stat values        |
-| `brand.accentDark`| `#0FBF77` | Green hover / pressed states                               |
-| Text Primary      | `#E5E7EB` | Main copy                                                   |
-| Text Secondary    | `#9CA3AF` | Subtext, meta                                              |
-| Warning           | `#F59E0B` | Warning states                                             |
-| Error             | `#EF4444` | Error states                                               |
+| Token             | Hex       | Role                                                          |
+| ----------------- | --------- | ------------------------------------------------------------- |
+| `brand.bg`        | `#060609` | App shell background (near-black)                             |
+| `brand.surface`   | `#0E0E14` | Cards / sections                                              |
+| `brand.surface2`  | `#15151E` | Elevated surfaces — modals, nav, nested tiles                |
+| `brand.line`      | `#26262F` | Hairlines, dividers, card borders                            |
+| `brand.line2`     | `#3A3A46` | Hover / active borders                                        |
+| `brand.purple`    | `#8B5CF6` | Workhorse accent — link hover, focus rings, active chips     |
+| `brand.purpleDark`| `#7C3AED` | Purple hover / pressed states                                |
+| `brand.blue`      | `#6366F1` | Indigo gradient midpoint only                                |
+| `brand.teal`      | `#5EEAD4` | Aqua gradient endpoint                                        |
+| `brand.accent`    | `#5EEAD4` | Highlight / status accent (soft aqua) — status dots, stat values |
+| `brand.accentDark`| `#2DD4BF` | Aqua hover / pressed states                                  |
+| `brand.orchid`    | `#C084FC` | Highlight hue — gradient endpoint + occasional highlight     |
+| Text Primary      | `#E5E7EB` | Main copy                                                     |
+| Text Secondary    | `#9CA3AF` | Subtext, meta                                                |
+| Warning           | `#F59E0B` | Warning states                                               |
+| Error             | `#EF4444` | Error states                                                 |
 
 > Keep accent usage restrained — the near-black base does the heavy lifting.
 
 ### Signature Gradient
 
-The brand spectrum runs purple → blue → green:
+The brand spectrum runs orchid → indigo → aqua:
 
 ```
-linear-gradient(90deg, #9945FF 0%, #5497D5 50%, #14F195 100%)   /* brand-gradient */
-linear-gradient(135deg, #9945FF 0%, #43B4CA 60%, #14F195 100%)  /* brand-gradient-br */
+linear-gradient(90deg, #C084FC 0%, #6366F1 50%, #5EEAD4 100%)   /* brand-gradient */
+linear-gradient(135deg, #C084FC 0%, #6366F1 55%, #5EEAD4 100%)  /* brand-gradient-br */
 ```
 
 Supporting fields:
 
 - **Hero Gradient**: `radial-gradient(ellipse at center, #060609 0%, #0E0E14 55%, #060609 100%)`
-- **Brand Glow**: `radial-gradient(ellipse 80% 50% at 50% -10%, rgba(153,69,255,0.16), transparent 70%)`
-  (`bg-brand-glow-radial`) — a soft purple bloom at the top of a section.
-- **Green Glow (CTA/focus)**: `0 0 24px rgba(20,241,149,0.25)` (`shadow-glow`)
-- **Purple Glow**: `0 0 28px rgba(153,69,255,0.35)` (`shadow-glow-purple`)
+- **Brand Glow**: a soft dual-tone aurora — purple/indigo bloom top-right, faint aqua glow
+  bottom-left, both very low alpha (`bg-brand-glow-radial`):
+  ```
+  radial-gradient(ellipse 70% 50% at 70% -10%, rgba(139,92,246,0.14), transparent 65%),
+  radial-gradient(ellipse 50% 40% at 15% 90%, rgba(94,234,212,0.07), transparent 70%)
+  ```
+- **Aqua Glow (CTA/focus)**: `0 0 24px rgba(94,234,212,0.22)` (`shadow-glow`)
+- **Purple Glow**: `0 0 28px rgba(139,92,246,0.32)` (`shadow-glow-purple`)
 
 ### Gradient Usage Rules
 
@@ -61,11 +69,15 @@ Supporting fields:
 2. **Gradient fills only on**: hero art strokes, the primary CTA, the 1px top-border of
    stat tiles, and the logo mark. Nothing else.
 3. **Accent semantics**:
-   - **Purple `#9945FF`** = workhorse accent — link hover, focus rings, active chips.
-   - **Green `#14F195`** = "live / confirmed" — status dots, stat values, success states.
-   - **Blue `#5497D5` / Teal `#43B4CA`** live *only inside gradients* — never as solid fills.
+   - **Purple `#8B5CF6`** = workhorse accent — link hover, focus rings, active chips.
+   - **Aqua `#5EEAD4`** = highlight / status accent — status dots, stat values, success
+     states. Used sparingly; it replaced the old neon green.
+   - **Orchid `#C084FC`** = highlight hue — appears only inside gradients and the
+     occasional highlight, never as a broad solid fill.
+   - **Indigo `#6366F1`** lives *only inside gradients* — never as a solid fill.
 4. **JetBrains Mono** carries all micro-labels: eyebrows/labels (uppercase,
-   `tracking-[0.2em]`), stat values, chips, and footer meta.
+   `tracking-[0.2em]`), stat values, chips, and footer meta. Eyebrows are plain mono labels
+   **without** a `//` prefix.
 
 ## 3) Typography
 
@@ -95,7 +107,7 @@ Supporting fields:
 - **Shadows**: no heavy drop shadows; prefer **inner border + glow**.
   - Card: `shadow-card` (`0 0 0 1px #26262F inset`), hover `shadow-card-hover`
     (`0 0 0 1px #3A3A46 inset`).
-  - Emphasis: `shadow-glow` (green) or `shadow-glow-purple`.
+  - Emphasis: `shadow-glow` (aqua) or `shadow-glow-purple`.
 
 ## 5) Iconography & Illustration
 
@@ -119,13 +131,14 @@ Supporting fields:
 - **`.bg-block-grid`**: faint 56px block-grid (1px lines at `rgba(255,255,255,0.025)`),
   radially masked so it fades at the edges. Use as an absolutely-positioned overlay div
   behind content.
-- **`bg-brand-glow-radial`**: soft purple bloom at the top of hero / feature sections.
+- **`bg-brand-glow-radial`**: soft dual-tone aurora — purple/indigo top-right, faint aqua
+  bottom-left — behind hero / feature sections.
 - Combine sparingly — texture supports the near-black base, it does not compete with it.
 
 ## 8) Accessibility & Contrast
 
 - Minimum 4.5:1 for body, 3:1 for large text.
-- Focus rings visible — purple `#9945FF`, `outline-2 outline-offset-2`.
+- Focus rings visible — purple `#8B5CF6`, `outline-2 outline-offset-2`.
 - Keyboard trap-free modals and menus.
 
 ## 9) Tailwind Tokens
@@ -141,12 +154,13 @@ theme: {
         surface2: "#15151E",
         line: "#26262F",
         line2: "#3A3A46",
-        purple: "#9945FF",
-        purpleDark: "#7B2FE0",
-        blue: "#5497D5",
-        teal: "#43B4CA",
-        accent: "#14F195",
-        accentDark: "#0FBF77",
+        purple: "#8B5CF6",
+        purpleDark: "#7C3AED",
+        blue: "#6366F1",
+        teal: "#5EEAD4",
+        accent: "#5EEAD4",
+        accentDark: "#2DD4BF",
+        orchid: "#C084FC",
       },
     },
     fontFamily: {
@@ -159,8 +173,8 @@ theme: {
     },
     boxShadow: {
       card: "0 1px 0 0 rgba(255,255,255,0.02), 0 0 0 1px #26262F inset",
-      glow: "0 0 24px rgba(20,241,149,0.25)",
-      "glow-purple": "0 0 28px rgba(153,69,255,0.35)",
+      glow: "0 0 24px rgba(94,234,212,0.22)",
+      "glow-purple": "0 0 28px rgba(139,92,246,0.32)",
     },
     borderRadius: {
       xl: "1rem",

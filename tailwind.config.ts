@@ -15,12 +15,13 @@ const config: Config = {
           surface2: "#15151E",
           line: "#26262F",
           line2: "#3A3A46",
-          purple: "#9945FF",
-          purpleDark: "#7B2FE0",
-          blue: "#5497D5",
-          teal: "#43B4CA",
-          accent: "#14F195",
-          accentDark: "#0FBF77",
+          purple: "#8B5CF6",
+          purpleDark: "#7C3AED",
+          blue: "#6366F1",
+          teal: "#5EEAD4",
+          accent: "#5EEAD4",
+          accentDark: "#2DD4BF",
+          orchid: "#C084FC",
         },
         // Keep existing Tailwind colors
         slate: {
@@ -145,18 +146,18 @@ const config: Config = {
         "hero-gradient":
           "radial-gradient(ellipse at center, #060609 0%, #0E0E14 55%, #060609 100%)",
         "brand-gradient":
-          "linear-gradient(90deg, #9945FF 0%, #5497D5 50%, #14F195 100%)",
+          "linear-gradient(90deg, #C084FC 0%, #6366F1 50%, #5EEAD4 100%)",
         "brand-gradient-br":
-          "linear-gradient(135deg, #9945FF 0%, #43B4CA 60%, #14F195 100%)",
+          "linear-gradient(135deg, #C084FC 0%, #6366F1 55%, #5EEAD4 100%)",
         "brand-glow-radial":
-          "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(153,69,255,0.16), transparent 70%)",
+          "radial-gradient(ellipse 70% 50% at 70% -10%, rgba(139,92,246,0.14), transparent 65%), radial-gradient(ellipse 50% 40% at 15% 90%, rgba(94,234,212,0.07), transparent 70%)",
       },
       boxShadow: {
         card: "0 1px 0 0 rgba(255,255,255,0.02), 0 0 0 1px #26262F inset",
         "card-hover":
           "0 1px 0 0 rgba(255,255,255,0.04), 0 0 0 1px #3A3A46 inset",
-        glow: "0 0 24px rgba(20,241,149,0.25)",
-        "glow-purple": "0 0 28px rgba(153,69,255,0.35)",
+        glow: "0 0 24px rgba(94,234,212,0.22)",
+        "glow-purple": "0 0 28px rgba(139,92,246,0.32)",
       },
       borderRadius: {
         xl: "1rem",

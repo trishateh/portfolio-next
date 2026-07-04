@@ -25,9 +25,9 @@ export default function OpengraphImage() {
           viewBox="0 0 64 64"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M32 12 L51.05 23 L32 34 L12.95 23 Z" fill="#9945FF" />
-          <path d="M12.95 23 L32 34 L32 56 L12.95 45 Z" fill="#5497D5" />
-          <path d="M32 34 L51.05 23 L51.05 45 L32 56 Z" fill="#14F195" />
+          <path d="M32 12 L51.05 23 L32 34 L12.95 23 Z" fill="#C084FC" />
+          <path d="M12.95 23 L32 34 L32 56 L12.95 45 Z" fill="#6366F1" />
+          <path d="M32 34 L51.05 23 L51.05 45 L32 56 Z" fill="#5EEAD4" />
         </svg>
         <div
           style={{
@@ -51,7 +51,7 @@ export default function OpengraphImage() {
         <div
           style={{
             fontSize: 24,
-            color: "#5497D5",
+            color: "#6366F1",
             marginTop: 28,
           }}
         >
@@ -63,7 +63,7 @@ export default function OpengraphImage() {
             bottom: 60,
             width: 480,
             height: 1,
-            background: "linear-gradient(90deg,#9945FF,#5497D5,#14F195)",
+            background: "linear-gradient(90deg,#C084FC,#6366F1,#5EEAD4)",
           }}
         />
       </div>

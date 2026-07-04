@@ -6,10 +6,11 @@
   --brand-bg: #060609;
   --brand-surface: #0E0E14;
   --brand-surface2: #15151E;
-  --brand-accent: #14F195;
-  --brand-accent-dark: #0FBF77;
-  --brand-blue: #5497D5;
-  --brand-purple: #9945FF;
+  --brand-accent: #5EEAD4;
+  --brand-accent-dark: #2DD4BF;
+  --brand-blue: #6366F1;
+  --brand-purple: #8B5CF6;
+  --brand-orchid: #C084FC;
   --brand-line: #26262F;
 }
 
@@ -88,7 +89,7 @@ body {
   }
   
   .gradient-text {
-    background: linear-gradient(90deg, #9945FF 0%, #5497D5 50%, #14F195 100%);
+    background: linear-gradient(90deg, #C084FC 0%, #6366F1 50%, #5EEAD4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

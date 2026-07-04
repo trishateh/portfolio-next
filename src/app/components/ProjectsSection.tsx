@@ -52,14 +52,15 @@ const ProjectsSection = () => {
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
-              {"// projects"}
+              {"projects"}
             </p>
             <h2 className="font-display text-display-lg text-white mb-6">
               Things I&apos;ve <span className="gradient-text">shipped</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              A collection of projects spanning DeFi protocols, smart contracts,
-              full-stack Web3 development, web & mobile applications.
+              Production work across the stack — e-commerce and event platforms,
+              mobile apps, and DeFi protocols with the smart contracts behind
+              them.
             </p>
           </motion.div>
 

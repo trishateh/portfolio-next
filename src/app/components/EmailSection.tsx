@@ -46,11 +46,11 @@ const EmailSection = () => {
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
-              {"// contact"}
+              {"contact"}
             </p>
             <h2 className="font-display text-display-lg text-white">
               Let's build something{" "}
-              <span className="gradient-text">on-chain</span>
+              <span className="gradient-text">people use</span>
             </h2>
           </motion.div>
 
@@ -63,9 +63,9 @@ const EmailSection = () => {
                     Open to what's next
                   </h3>
                   <p className="text-slate-300/90 leading-relaxed">
-                    I'm looking for senior full-stack / web3 roles and
-                    interesting protocol work. If you're building something
-                    with real users on-chain, I'd like to hear about it.
+                    I'm open to senior full-stack, web3, and product
+                    engineering roles. If you're building something with real
+                    users — on-chain or off — I'd like to hear about it.
                   </p>
                 </div>
 

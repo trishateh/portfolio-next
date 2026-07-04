@@ -13,7 +13,6 @@ interface Stat {
   prefix?: string;
   value: number;
   suffix: string;
-  footer: string;
 }
 
 const stats: Stat[] = [
@@ -22,26 +21,22 @@ const stats: Stat[] = [
     prefix: "$",
     value: 200,
     suffix: "M+",
-    footer: "confirmed",
   },
   {
     monoLabel: "users_reached",
     prefix: "~",
     value: 300,
     suffix: "K+",
-    footer: "confirmed",
   },
   {
-    monoLabel: "projects_shipped",
+    monoLabel: "products_shipped",
     value: 20,
     suffix: "+",
-    footer: "confirmed",
   },
   {
-    monoLabel: "years_in_web3",
+    monoLabel: "years_experience",
     value: 5,
     suffix: "+",
-    footer: "confirmed",
   },
 ];
 
@@ -91,10 +86,6 @@ const AchievementsSection = () => {
                     value={stat.value}
                     suffix={stat.suffix}
                   />
-                  <div className="flex items-center gap-2 font-mono text-xs text-slate-500">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                    {stat.footer}
-                  </div>
                 </div>
               </Card>
             </motion.div>

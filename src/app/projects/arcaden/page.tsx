@@ -101,7 +101,7 @@ export default function ArcadenCaseStudy() {
           {/* Header */}
           <header className="mb-16 max-w-3xl">
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent">
-              {"// case study"}
+              {"case study"}
             </p>
             <h1 className="font-display text-display-lg text-white">
               Play, collect, and earn on{" "}

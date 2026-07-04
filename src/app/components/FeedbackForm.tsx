@@ -92,12 +92,12 @@ export function FeedbackForm() {
       </Magnetic>
       {status === "ok" && (
         <p className="mt-4 font-mono text-sm text-brand-accent">
-          {"// message sent ✓"}
+          {"message sent ✓"}
         </p>
       )}
       {status === "error" && (
         <p className="mt-4 font-mono text-sm text-red-400">
-          {"// error: "}{error}
+          {"error: "}{error}
         </p>
       )}
     </form>

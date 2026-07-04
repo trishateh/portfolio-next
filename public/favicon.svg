@@ -1,6 +1,6 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Isometric cube "the block" — 3 rhombus faces -->
-  <path d="M32 12 L51.05 23 L32 34 L12.95 23 Z" fill="#9945FF"/>
-  <path d="M12.95 23 L32 34 L32 56 L12.95 45 Z" fill="#5497D5"/>
-  <path d="M32 34 L51.05 23 L51.05 45 L32 56 Z" fill="#14F195"/>
+  <path d="M32 12 L51.05 23 L32 34 L12.95 23 Z" fill="#C084FC"/>
+  <path d="M12.95 23 L32 34 L32 56 L12.95 45 Z" fill="#6366F1"/>
+  <path d="M32 34 L51.05 23 L51.05 45 L32 56 Z" fill="#5EEAD4"/>
 </svg>
