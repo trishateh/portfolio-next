@@ -26,7 +26,7 @@ const Footer = () => {
               height={26}
               className="opacity-70"
             />
-            <span className="font-mono text-xs text-slate-500">
+            <span className="font-mono text-xs text-slate-400">
               &copy; 2026 trisha.teh
             </span>
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           {/* Right - build meta */}
-          <span className="font-mono text-xs text-slate-600">
+          <span className="font-mono text-xs text-slate-400">
             built with next.js &middot; deployed on netlify
           </span>
         </div>

@@ -130,6 +130,7 @@ export default function ProjectCard({
                 variant="outline"
                 size="sm"
                 className="!px-3"
+                aria-label={`${project.title} repository on GitHub`}
               >
                 <Github className="w-4 h-4" />
               </Button>
@@ -141,6 +142,7 @@ export default function ProjectCard({
                 variant="outline"
                 size="sm"
                 className="!px-3"
+                aria-label={`${project.title} case study`}
               >
                 <FileText className="w-4 h-4" />
               </Button>

@@ -85,6 +85,7 @@ const Navbar = () => {
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
             className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+            aria-label={navbarOpen ? "Close menu" : "Open menu"}
           >
             {navbarOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

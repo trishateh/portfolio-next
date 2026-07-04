@@ -47,6 +47,8 @@ export default function Button({
   );
 
   if (href) {
+    const ariaLabel = props["aria-label"];
+
     if (external) {
       return (
         <a
@@ -54,6 +56,7 @@ export default function Button({
           target="_blank"
           rel="noopener noreferrer"
           className={baseClasses}
+          aria-label={ariaLabel}
         >
           {children}
         </a>
@@ -61,7 +64,7 @@ export default function Button({
     }
 
     return (
-      <Link href={href} className={baseClasses}>
+      <Link href={href} className={baseClasses} aria-label={ariaLabel}>
         {children}
       </Link>
     );

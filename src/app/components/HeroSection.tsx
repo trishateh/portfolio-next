@@ -31,7 +31,7 @@ const HeroSection = () => {
                 variants={fadeUp}
                 className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-6"
               >
-                // senior web3 engineer · ex-medical doctor
+                {"// senior web3 engineer · ex-medical doctor"}
               </motion.p>
 
               {/* Main heading — two masked reveal lines */}

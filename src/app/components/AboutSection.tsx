@@ -43,7 +43,7 @@ const AboutSection = () => {
           {/* Header */}
           <motion.div variants={revealUp} className="mb-12">
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent">
-              // about
+              {"// about"}
             </p>
             <h2 className="font-display text-display-lg text-white">
               From medicine to <span className="gradient-text">mainnet</span>

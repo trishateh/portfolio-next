@@ -46,7 +46,7 @@ const EmailSection = () => {
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
-              // contact
+              {"// contact"}
             </p>
             <h2 className="font-display text-display-lg text-white">
               Let's build something{" "}

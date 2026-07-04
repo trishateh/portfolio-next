@@ -52,7 +52,7 @@ const ProjectsSection = () => {
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
-              // projects
+              {"// projects"}
             </p>
             <h2 className="font-display text-display-lg text-white mb-6">
               Things I&apos;ve <span className="gradient-text">shipped</span>
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
           {/* Projects Grid — bento */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-4 auto-rows-fr"
           >
             {displayedProjects.map((project, index) => (
               <motion.div
