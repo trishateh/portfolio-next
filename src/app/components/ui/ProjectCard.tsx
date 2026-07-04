@@ -11,25 +11,34 @@ import { hoverLift } from "@/lib/motion";
 
 interface ProjectCardProps {
   project: Project;
+  featured?: boolean;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
-  const categoryColors = {
-    dapp: "accent",
-    "smart-contract": "blue",
-    web: "default",
-  } as const;
+const categoryLabels = {
+  dapp: "DApp",
+  "smart-contract": "Smart Contract",
+  web: "Web App",
+} as const;
 
+export default function ProjectCard({
+  project,
+  featured = false,
+}: ProjectCardProps) {
   return (
     <motion.div whileHover={hoverLift} className="group h-full">
       <Card className="overflow-hidden h-full flex flex-col">
         {/* Hero Media */}
-        <div className="aspect-video overflow-hidden rounded-t-2xl bg-slate-800 relative">
+        <div
+          className={`overflow-hidden rounded-t-2xl bg-slate-800 relative ${
+            featured ? "aspect-video md:aspect-[2/1]" : "aspect-video"
+          }`}
+        >
           {project.heroMedia.type === "image" ? (
             <Image
               src={project.heroMedia.src}
               alt={project.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
@@ -46,15 +55,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Category badge */}
           <div className="absolute top-4 left-4">
-            <div className="backdrop-blur-md bg-black/30 rounded-full px-3 py-1 border border-white/20">
-              <span className="text-xs font-medium text-white">
-                {project.category === "smart-contract"
-                  ? "Smart Contract"
-                  : project.category === "web"
-                  ? "Web App"
-                  : "DApp"}
-              </span>
-            </div>
+            <Chip
+              size="sm"
+              className="bg-black/40 backdrop-blur-md text-white border border-white/20"
+            >
+              {categoryLabels[project.category]}
+            </Chip>
           </div>
         </div>
 
@@ -62,25 +68,30 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="p-6 flex-1 flex flex-col">
           {/* Title & Summary */}
           <div className="flex-1">
-            <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-accent transition-colors">
+            <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-purple transition-colors">
               {project.title}
             </h3>
             <p className="text-slate-400 line-clamp-3 mb-4 leading-relaxed text-sm">
               {project.summary}
             </p>
-          </div>
 
-          {/* Impact (if available) */}
-          {project.impact && project.impact.length > 0 && (
-            <div className="mb-4">
-              <p className="text-sm text-brand-accent font-medium mb-2">
-                Key Impact:
-              </p>
-              <p className="text-sm text-slate-400 line-clamp-2">
-                {project.impact[0]}
-              </p>
-            </div>
-          )}
+            {/* Impact — featured only */}
+            {featured && project.impact && project.impact.length > 0 && (
+              <ul className="mb-4 space-y-1.5">
+                {project.impact.slice(0, 2).map((line) => (
+                  <li
+                    key={line}
+                    className="flex gap-2 text-sm text-slate-400 leading-relaxed"
+                  >
+                    <span className="font-mono text-xs text-brand-accent shrink-0 pt-0.5">
+                      impact:
+                    </span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           {/* Tech Stack */}
           <div className="mb-6">

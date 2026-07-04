@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Button from "./ui/Button";
+import Magnetic from "./ui/Magnetic";
+
+const fieldClasses =
+  "bg-brand-surface border border-brand-line rounded-lg font-mono text-sm text-white placeholder:text-slate-600 focus:border-brand-purple focus:ring-1 focus:ring-brand-purple focus:outline-none block w-full p-2.5";
+
+const labelClasses =
+  "font-mono text-xs uppercase tracking-[0.2em] text-slate-500 block mb-2";
 
 export function FeedbackForm() {
   const [status, setStatus] = useState<string | null>(null);
@@ -40,10 +48,7 @@ export function FeedbackForm() {
     >
       <input type="hidden" name="form-name" value="contact" />
       <div className="mb-6">
-        <label
-          htmlFor="email"
-          className="text-white block mb-2 text-sm font-medium"
-        >
+        <label htmlFor="email" className={labelClasses}>
           Your email
         </label>
         <input
@@ -51,15 +56,12 @@ export function FeedbackForm() {
           type="email"
           id="email"
           required
-          className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+          className={fieldClasses}
           placeholder="example@email.com"
         />
       </div>
       <div className="mb-6">
-        <label
-          htmlFor="subject"
-          className="text-white block mb-2 text-sm font-medium"
-        >
+        <label htmlFor="subject" className={labelClasses}>
           Subject
         </label>
         <input
@@ -67,79 +69,37 @@ export function FeedbackForm() {
           type="text"
           id="subject"
           required
-          className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+          className={fieldClasses}
           placeholder="Just saying hi"
         />
       </div>
       <div className="mb-6">
-        <label
-          htmlFor="message"
-          className="text-white block mb-2 text-sm font-medium"
-        >
+        <label htmlFor="message" className={labelClasses}>
           Message
         </label>
         <textarea
           name="message"
           id="message"
           required
-          className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+          className={fieldClasses}
           placeholder="Let's talk about..."
         />
       </div>
-      <button
-        type="submit"
-        className="bg-brand-accent hover:bg-brand-accentDark text-white font-medium py-2.5 px-5 rounded-full"
-        disabled={status === "pending"}
-      >
-        Send Message
-      </button>
+      <Magnetic>
+        <Button variant="primary" type="submit" disabled={status === "pending"}>
+          {status === "pending" ? "Sending…" : "Send Message"}
+        </Button>
+      </Magnetic>
       {status === "ok" && (
-        <div className="flex items-center space-x-2 mt-4 p-4 bg-green-600 text-white rounded-lg">
-          <SuccessIcon />
-          <span>Submitted!</span>
-        </div>
+        <p className="mt-4 font-mono text-sm text-brand-accent">
+          // message sent ✓
+        </p>
       )}
       {status === "error" && (
-        <div className="flex items-center space-x-2 mt-4 p-4 bg-red-600 text-white rounded-lg">
-          <ErrorIcon />
-          <span>{error}</span>
-        </div>
+        <p className="mt-4 font-mono text-sm text-red-400">
+          // error: {error}
+        </p>
       )}
     </form>
-  );
-}
-
-function SuccessIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="stroke-current shrink-0 h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    </svg>
-  );
-}
-function ErrorIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="stroke-current shrink-0 h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    </svg>
   );
 }

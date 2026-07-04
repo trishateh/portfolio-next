@@ -1,43 +1,35 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { User, Code, Award } from "lucide-react";
+import { cn } from "@/lib/utils";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
-import Chip from "./ui/Chip";
+import Card from "./ui/Card";
 import Timeline from "./ui/Timeline";
 import SkillsGrid from "./ui/SkillsGrid";
 import AchievementsList from "./ui/AchievementsList";
 import { skillCategories, experiences, achievements } from "../data/aboutData";
-import { fadeUp, slideInLeft, slideInRight, stagger } from "@/lib/motion";
+import { revealUp, stagger, bentoHover } from "@/lib/motion";
 
-type TabType = "skills" | "experience" | "achievements";
+const labelClass = "font-mono text-xs uppercase tracking-[0.2em] text-slate-500";
 
-const tabs = [
-  { id: "skills" as TabType, label: "Skills", icon: Code },
-  { id: "experience" as TabType, label: "Experience", icon: User },
-  { id: "achievements" as TabType, label: "Achievements", icon: Award },
-];
+interface BentoCellProps {
+  span: string;
+  className?: string;
+  children: React.ReactNode;
+}
+
+const BentoCell = ({ span, className, children }: BentoCellProps) => (
+  <motion.div variants={revealUp} whileHover={bentoHover} className={span}>
+    <Card className={cn("h-full p-6", className)}>{children}</Card>
+  </motion.div>
+);
 
 const AboutSection = () => {
-  const [activeTab, setActiveTab] = useState<TabType>("skills");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  const renderTabContent = () => {
-    switch (activeTab) {
-      case "skills":
-        return <SkillsGrid categories={skillCategories} />;
-      case "experience":
-        return <Timeline items={experiences} />;
-      case "achievements":
-        return <AchievementsList achievements={achievements} />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <Section id="about">
@@ -49,89 +41,83 @@ const AboutSection = () => {
           animate={isInView ? "show" : "hidden"}
         >
           {/* Header */}
-          <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About <span className="gradient-text">Me</span>
-            </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              From medical doctor to blockchain developer — a journey driven by 
-              innovation and the transformative power of technology.
+          <motion.div variants={revealUp} className="mb-12">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent">
+              // about
             </p>
+            <h2 className="font-display text-display-lg text-white">
+              From medicine to <span className="gradient-text">mainnet</span>
+            </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left side - Image and story */}
-            <motion.div variants={slideInLeft} className="lg:col-span-5">
-              <div className="relative mb-8">
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/10 to-brand-blue/10 rounded-2xl blur-2xl scale-110"></div>
-                
-                {/* Image */}
-                <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-700 bg-brand-surface2">
+          {/* Bento grid */}
+          <motion.div
+            variants={stagger}
+            className="grid gap-4 md:grid-cols-6"
+          >
+            {/* Bio */}
+            <BentoCell span="md:col-span-4" className="md:p-8">
+              <p className={cn(labelClass, "mb-5")}>bio</p>
+              <div className="flex flex-col gap-6 sm:flex-row">
+                <div className="flex-shrink-0">
                   <Image
                     src="/images/about.webp"
-                    alt="Trisha Teh - About"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto"
+                    alt="Trisha Teh"
+                    width={128}
+                    height={128}
                     quality={100}
+                    className="h-24 w-24 rounded-2xl object-cover ring-1 ring-brand-line sm:h-28 sm:w-28"
                   />
                 </div>
+                <div className="space-y-3 leading-relaxed text-slate-300/90">
+                  <p>
+                    I started out as a medical doctor — trained to reason under
+                    pressure and get the details right. In 2021 I taught myself
+                    to code and moved into blockchain full-time, trading
+                    diagnostics for distributed systems.
+                  </p>
+                  <p>
+                    Five years on, I&apos;m a senior full-stack engineer
+                    shipping production DeFi and web3 across multiple chains,
+                    from smart contracts to the interfaces on top of them. The
+                    clinical instinct for precision and consequence never left;
+                    it just found a new domain.
+                  </p>
+                </div>
               </div>
+            </BentoCell>
 
-              {/* Story */}
-              <div className="space-y-4 text-slate-300 leading-relaxed">
-                <p>
-                  As a former medical doctor turned blockchain developer, my journey 
-                  from healthcare to the forefront of technology has been driven by a 
-                  fascination with the transformative power of digital solutions.
-                </p>
-                <p>
-                  Transitioning from diagnosing patients to debugging code, I have 
-                  leveraged my analytical skills and attention to detail in both realms. 
-                  Now, as a software engineer specializing in blockchain technology, 
-                  I am committed to continuous learning and innovation.
-                </p>
-                <p>
-                  My aim is to contribute to projects that push the boundaries of what is 
-                  possible, harnessing blockchain's potential to create secure, 
-                  transparent, and efficient systems.
-                </p>
+            {/* Currently */}
+            <BentoCell span="md:col-span-2">
+              <p className={cn(labelClass, "mb-5")}>currently</p>
+              <p className="font-medium leading-snug text-white">
+                Web3 Full Stack Engineer
+              </p>
+              <p className="mb-6 text-sm text-brand-accent">@ Yei Finance</p>
+              <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-glow" />
+                <span>status: building</span>
               </div>
-            </motion.div>
+            </BentoCell>
 
-            {/* Right side - Tabs and content */}
-            <motion.div variants={slideInRight} className="lg:col-span-7">
-              {/* Tab Navigation */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  return (
-                    <Chip
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      active={activeTab === tab.id}
-                      variant={activeTab === tab.id ? "accent" : "default"}
-                      className="cursor-pointer !px-4 !py-2"
-                    >
-                      <Icon className="w-4 h-4 mr-2" />
-                      {tab.label}
-                    </Chip>
-                  );
-                })}
-              </div>
+            {/* Skills */}
+            <BentoCell span="md:col-span-3">
+              <p className={cn(labelClass, "mb-5")}>stack</p>
+              <SkillsGrid categories={skillCategories} />
+            </BentoCell>
 
-              {/* Tab Content */}
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {renderTabContent()}
-              </motion.div>
-            </motion.div>
-          </div>
+            {/* Experience */}
+            <BentoCell span="md:col-span-3">
+              <p className={cn(labelClass, "mb-5")}>experience</p>
+              <Timeline items={experiences} />
+            </BentoCell>
+
+            {/* Highlights */}
+            <BentoCell span="md:col-span-6">
+              <p className={cn(labelClass, "mb-5")}>highlights</p>
+              <AchievementsList achievements={achievements} />
+            </BentoCell>
+          </motion.div>
         </motion.div>
       </Container>
     </Section>

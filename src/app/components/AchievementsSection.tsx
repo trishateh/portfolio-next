@@ -2,46 +2,68 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import dynamic from "next/dynamic";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
 import Card from "./ui/Card";
-import { fadeUp, stagger } from "@/lib/motion";
+import { revealUp, stagger } from "@/lib/motion";
+import { useCountUp } from "@/lib/useCountUp";
 
-const AnimatedNumbers = dynamic(
-  () => {
-    return import("react-animated-numbers");
-  },
-  { ssr: false },
-);
+interface Stat {
+  monoLabel: string;
+  prefix?: string;
+  value: number;
+  suffix: string;
+  footer: string;
+}
 
-const achievementsList = [
+const stats: Stat[] = [
   {
-    metric: "Projects",
-    value: "20",
-    postfix: "+",
-    description: "Blockchain projects delivered",
+    monoLabel: "volume_processed",
+    prefix: "$",
+    value: 200,
+    suffix: "M+",
+    footer: "confirmed",
   },
   {
+    monoLabel: "users_reached",
     prefix: "~",
-    metric: "Users",
-    value: "300000",
-    postfix: "+",
-    description: "Users reached across platforms",
+    value: 300,
+    suffix: "K+",
+    footer: "confirmed",
   },
   {
-    metric: "Volume",
-    value: "200",
-    postfix: "M+",
-    description: "Trading volume processed",
+    monoLabel: "projects_shipped",
+    value: 20,
+    suffix: "+",
+    footer: "confirmed",
   },
   {
-    metric: "Experience",
-    value: "5",
-    postfix: "+",
-    description: "Years in Web3 development",
+    monoLabel: "years_in_web3",
+    value: 5,
+    suffix: "+",
+    footer: "confirmed",
   },
 ];
+
+const StatValue = ({
+  prefix,
+  value,
+  suffix,
+}: {
+  prefix?: string;
+  value: number;
+  suffix: string;
+}) => {
+  const { ref, value: animatedValue } = useCountUp(value);
+
+  return (
+    <div className="font-display text-4xl md:text-5xl text-white">
+      {prefix}
+      <span ref={ref as React.RefObject<HTMLSpanElement>}>{animatedValue}</span>
+      {suffix}
+    </div>
+  );
+};
 
 const AchievementsSection = () => {
   const ref = useRef(null);
@@ -55,42 +77,28 @@ const AchievementsSection = () => {
           variants={stagger}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          <Card className="p-8 md:p-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {achievementsList.map((achievement, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeUp}
-                  className="text-center"
-                >
-                  <div className="mb-2">
-                    <div className="text-3xl md:text-4xl font-bold text-white flex items-center justify-center">
-                      {achievement.prefix}
-                      <AnimatedNumbers
-                        includeComma
-                        animateToNumber={parseInt(achievement.value)}
-                        locale="en-US"
-                        className="text-white text-3xl md:text-4xl font-bold"
-                        transitions={(index: any) => ({
-                          type: "spring",
-                          stiffness: 100,
-                          duration: index + 0.3,
-                        })}
-                      />
-                      {achievement.postfix}
-                    </div>
+          {stats.map((stat) => (
+            <motion.div key={stat.monoLabel} variants={revealUp}>
+              <Card topAccent className="p-6 h-full">
+                <div className="flex h-full flex-col justify-between gap-6">
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
+                    {stat.monoLabel}
+                  </span>
+                  <StatValue
+                    prefix={stat.prefix}
+                    value={stat.value}
+                    suffix={stat.suffix}
+                  />
+                  <div className="flex items-center gap-2 font-mono text-xs text-slate-500">
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                    {stat.footer}
                   </div>
-                  <h3 className="text-brand-accent font-semibold mb-1">
-                    {achievement.metric}
-                  </h3>
-                  <p className="text-slate-400 text-sm">
-                    {achievement.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </Card>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
         </motion.div>
       </Container>
     </Section>

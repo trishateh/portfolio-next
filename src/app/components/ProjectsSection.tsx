@@ -51,8 +51,11 @@ const ProjectsSection = () => {
         >
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Featured <span className="gradient-text">Projects</span>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
+              // projects
+            </p>
+            <h2 className="font-display text-display-lg text-white mb-6">
+              Things I&apos;ve <span className="gradient-text">shipped</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               A collection of projects spanning DeFi protocols, smart contracts,
@@ -78,19 +81,21 @@ const ProjectsSection = () => {
             ))}
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid — bento */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr"
           >
             {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={fadeUp}
                 transition={{ delay: index * 0.1 }}
-                className="h-full"
+                className={`h-full ${
+                  project.featured ? "md:col-span-2" : ""
+                }`}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} featured={project.featured} />
               </motion.div>
             ))}
           </motion.div>
