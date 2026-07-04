@@ -41,7 +41,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "React", "Ethers.js", "Hardhat"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/wave-portal.png",
+      src: "/images/projects/wave-portal.webp",
     },
     links: {
       repo: "https://github.com/trishateh/wave-portal",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "React", "Ethers.js", "IPFS"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/nft-collection.png",
+      src: "/images/projects/nft-collection.webp",
     },
     links: {
       repo: "https://github.com/trishateh/NFT-collection",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     stack: ["React", "Rust", "Solana", "Anchor"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/gif-portal.png",
+      src: "/images/projects/gif-portal.webp",
     },
     links: {
       repo: "https://github.com/trishateh/gif-portal",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "Hardhat", "React", "Ethers.js"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/nft-game.png",
+      src: "/images/projects/nft-game.webp",
     },
     links: {
       repo: "https://github.com/trishateh/nft-game",
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     stack: ["Rust", "Metaplex", "Anchor", "React"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/solana-nft-drop.png",
+      src: "/images/projects/solana-nft-drop.webp",
     },
     links: {
       demo: "https://nft-drop-starter-project-neon.vercel.app",
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "Ethers.js", "Hardhat", "React"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/dao.png",
+      src: "/images/projects/dao.webp",
     },
     links: {
       repo: "https://github.com/trishateh/myDAO",
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "Ethers.js", "IPFS", "Next.js"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/domain-service.png",
+      src: "/images/projects/domain-service.webp",
     },
     links: {
       demo: "https://domain-service.vercel.app",
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "Hardhat", "IPFS", "React"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/burn-island.png",
+      src: "/images/projects/burn-island.webp",
     },
     links: {
       repo: "https://bscscan.com/token/0x19e234fbeE6e3cBfd135CE9e0867d8a5729b1136#code",
@@ -204,7 +204,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "Hardhat", "IPFS", "React"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/v2minting.png",
+      src: "/images/projects/v2minting.webp",
     },
     links: {
       repo: "https://polygonscan.com/address/0xaA471316D84579c6CF52C8240b9e21A1f6A21DE7#code",
@@ -227,7 +227,7 @@ export const projects: Project[] = [
     stack: ["Solidity", "Hardhat", "Ethers.js", "React"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/nft-staking.jpeg",
+      src: "/images/projects/nft-staking.webp",
     },
     links: {
       repo: "https://polygonscan.com/address/0x6efd558C9694Be4A40EE260dcA3Db56689f61be7#code",
@@ -250,7 +250,7 @@ export const projects: Project[] = [
     stack: ["Solana", "React", "NestJS", "PostgreSQL"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/lavarage-dapp.png",
+      src: "/images/projects/lavarage-dapp.webp",
     },
     links: {
       demo: "https://app.lavarage.xyz",
@@ -274,7 +274,7 @@ export const projects: Project[] = [
     stack: ["React", "Auth0", "NestJS", "PostgreSQL"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/partners-portal.png",
+      src: "/images/projects/partners-portal.webp",
     },
     links: {
       demo: "https://partners-portal.lavarave.wtf",
@@ -295,7 +295,7 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "NestJS", "Solana"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/lenders-portal.png",
+      src: "/images/projects/lenders-portal.webp",
     },
     links: {
       demo: "https://yield.lavarage.xyz",
@@ -318,7 +318,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Shopify", "React"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/mapacs.png",
+      src: "/images/projects/mapacs.webp",
     },
     links: {
       demo: "https://mapacs.vercel.app/events/asm-2026",
@@ -340,7 +340,7 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Solidity"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/yei-finance.png",
+      src: "/images/projects/yei-finance.webp",
     },
     links: {
       demo: "https://app.yei.finance",
@@ -362,7 +362,7 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Solidity"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/clovis-testnet.png",
+      src: "/images/projects/clovis-testnet.webp",
     },
     links: {
       demo: "https://testnet.clovis.network",

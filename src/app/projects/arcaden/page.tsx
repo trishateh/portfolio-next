@@ -6,7 +6,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 const details = [
   {
-    asset: "/images/arcaden/login.png",
+    asset: "/images/arcaden/login.webp",
     text: "The platform offers both traditional login with email and password, as well as secure Web 3 wallet connection and authentication using Sign-In with Ethereum (SIWE).",
   },
   {
@@ -14,7 +14,7 @@ const details = [
     text: "The homepage features easy navigation through the platform's features, with auto-rotating banners that showcase the latest updates and offerings. Users are able to explore and seamlessly navigate to new features, games, and rewards with just a click, ensuring they stay up-to-date with everything Arcaden has to offer.",
   },
   {
-    asset: "/images/arcaden/top_up.png",
+    asset: "/images/arcaden/top_up.webp",
     text: "Users can deposit selected cryptocurrency tokens to receive in-game tokens, allowing them to engage with the platform and participate in arcade games, quests or earn rewards.",
   },
   {
@@ -22,23 +22,23 @@ const details = [
     text: "A showcase of the platforms marketplace where users can open various weapons treasure chests, purchase collectibles, and acquire their own avatars from the Avatar Store.",
   },
   {
-    asset: "/images/projects/burn-island.png",
+    asset: "/images/projects/burn-island.webp",
     text: "All existing World Of Arcaden V1 G3M NFT holders will be able to burn their V1 G3Ms on Burn Island to obtain V2 Collectibles.",
   },
   {
-    asset: "/images/projects/v2minting.png",
+    asset: "/images/projects/v2minting.webp",
     text: "With the minting feature, holders of G3M Material and Weapon Collectibles are able to mint equivalent V2 G3M NFTs and view them on Opensea.",
   },
   {
-    asset: "/images/projects/nft-staking.jpeg",
+    asset: "/images/projects/nft-staking.webp",
     text: "Avatar characters, represented as ERC-721 NFTs, can equip powerful weapons, which are ERC-1155 NFTs, to accumulate combat points. Users can select from a variety of avatars, each with unique abilities and powers, allowing for personalized strategies and gameplay as they enhance their combat capabilities.",
   },
   {
-    asset: "/images/arcaden/quest-board.jpeg",
+    asset: "/images/arcaden/quest-board.webp",
     text: "Characters that equip weapons can be staked to embark on quests, allowing them to earn additional rewards. By equipping powerful gear, players enhance their chances of success in quests, unlocking greater opportunities for earning valuable in-game assets and achievements.",
   },
   {
-    asset: "/images/arcaden/mSald.png",
+    asset: "/images/arcaden/mSald.webp",
     text: "The mSALD Hub feature enhances the utility of cryptocurrency tokens by enabling users to seamlessly convert them into in-game tokens, unlocking new opportunities for gameplay and rewards, and enriching their overall experience on the platform.",
   },
 ];
@@ -73,7 +73,7 @@ export default function ProjectDisplay({
           Play, Collect, and Earn
         </h2>
         <Image
-          src="/images/arcaden/arcaden-hero.jpeg"
+          src="/images/arcaden/arcaden-hero.webp"
           alt="asset"
           height={400}
           width={600}

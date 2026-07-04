@@ -10,12 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          bg: "#0B0F14",
-          surface: "#0F172A",
-          surface2: "#111827",
-          accent: "#4FD1C5",
-          accentDark: "#0D9488",
-          blue: "#60A5FA",
+          bg: "#060609",
+          surface: "#0E0E14",
+          surface2: "#15151E",
+          line: "#26262F",
+          line2: "#3A3A46",
+          purple: "#9945FF",
+          purpleDark: "#7B2FE0",
+          blue: "#5497D5",
+          teal: "#43B4CA",
+          accent: "#14F195",
+          accentDark: "#0FBF77",
         },
         // Keep existing Tailwind colors
         slate: {
@@ -117,19 +122,41 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-jetbrains-mono)", "Consolas", "monospace"],
+        display: ["var(--font-space-grotesk)", "var(--font-inter)", "sans-serif"],
+      },
+      fontSize: {
+        "display-2xl": [
+          "clamp(3.25rem, 8vw, 7.5rem)",
+          { lineHeight: "0.95", letterSpacing: "-0.04em" },
+        ],
+        "display-xl": [
+          "clamp(2.5rem, 5.5vw, 5rem)",
+          { lineHeight: "1.0", letterSpacing: "-0.03em" },
+        ],
+        "display-lg": [
+          "clamp(1.875rem, 3.5vw, 3rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.02em" },
+        ],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-gradient":
-          "radial-gradient(ellipse at center, #0B0F14 0%, #0F172A 50%, #0B0F14 100%)",
+          "radial-gradient(ellipse at center, #060609 0%, #0E0E14 55%, #060609 100%)",
+        "brand-gradient":
+          "linear-gradient(90deg, #9945FF 0%, #5497D5 50%, #14F195 100%)",
+        "brand-gradient-br":
+          "linear-gradient(135deg, #9945FF 0%, #43B4CA 60%, #14F195 100%)",
+        "brand-glow-radial":
+          "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(153,69,255,0.16), transparent 70%)",
       },
       boxShadow: {
-        card: "0 1px 0 0 rgba(255,255,255,0.02), 0 0 0 1px #1F2937 inset",
+        card: "0 1px 0 0 rgba(255,255,255,0.02), 0 0 0 1px #26262F inset",
         "card-hover":
-          "0 1px 0 0 rgba(255,255,255,0.04), 0 0 0 1px #374151 inset",
-        glow: "0 0 20px rgba(79, 209, 197, 0.25)",
+          "0 1px 0 0 rgba(255,255,255,0.04), 0 0 0 1px #3A3A46 inset",
+        glow: "0 0 24px rgba(20,241,149,0.25)",
+        "glow-purple": "0 0 28px rgba(153,69,255,0.35)",
       },
       borderRadius: {
         xl: "1rem",

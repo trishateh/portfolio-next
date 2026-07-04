@@ -69,7 +69,7 @@ const AboutSection = () => {
                 {/* Image */}
                 <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-700 bg-brand-surface2">
                   <Image
-                    src="/images/about.png"
+                    src="/images/about.webp"
                     alt="Trisha Teh - About"
                     width={500}
                     height={500}
