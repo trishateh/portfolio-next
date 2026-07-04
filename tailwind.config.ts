@@ -127,7 +127,7 @@ const config: Config = {
       },
       fontSize: {
         "display-2xl": [
-          "clamp(3.25rem, 8vw, 7.5rem)",
+          "clamp(3.25rem, 6.5vw, 6.25rem)",
           { lineHeight: "0.95", letterSpacing: "-0.04em" },
         ],
         "display-xl": [

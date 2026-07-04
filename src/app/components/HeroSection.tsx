@@ -22,7 +22,7 @@ const stats = ["5+ yrs", "20+ products", "$200M+ processed", "300K+ users"];
 
 const HeroSection = () => {
   return (
-    <GradientBG className="min-h-screen flex items-center pt-24 md:pt-0">
+    <GradientBG className="min-h-screen flex items-center pt-24 md:pt-28 pb-12 md:pb-16">
       <Container>
         <Section spacing="lg" className="!py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
