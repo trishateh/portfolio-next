@@ -479,7 +479,7 @@ export default function TetrisPanel({ className }: TetrisPanelProps) {
     controlRef.current = {
       play: () => {
         resetGame();
-        if (statusRef.current !== "over") go("playing");
+        go("playing");
       },
       pause: () => {
         if (statusRef.current === "playing") go("paused");
