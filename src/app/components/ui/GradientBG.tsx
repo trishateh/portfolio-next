@@ -20,7 +20,7 @@ export default function GradientBG({ children, className }: GradientBGProps) {
       <div className="pointer-events-none absolute inset-0 bg-block-grid" />
 
       {/* Content */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 w-full">{children}</div>
     </div>
   );
 }

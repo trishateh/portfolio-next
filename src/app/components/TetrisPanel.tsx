@@ -739,6 +739,9 @@ export default function TetrisPanel({ className }: TetrisPanelProps) {
           <span className="font-mono text-sm uppercase tracking-[0.3em] text-white">
             tetris
           </span>
+          <span className="font-mono text-xs text-slate-400 -mt-2">
+            i stack blocks for a living — try it
+          </span>
           <Button variant="primary" size="sm" onClick={() => controlRef.current.play()}>
             play
           </Button>
