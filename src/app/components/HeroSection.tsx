@@ -11,7 +11,7 @@ import GradientBG from "./ui/GradientBG";
 import Magnetic from "./ui/Magnetic";
 import { stagger, fadeUp, heroLineStagger, heroLine } from "@/lib/motion";
 
-const PhysicsPlayground = dynamic(() => import("./PhysicsPlayground"), {
+const TetrisPanel = dynamic(() => import("./TetrisPanel"), {
   ssr: false,
   loading: () => (
     <div className="h-[420px] md:h-[480px] w-full rounded-2xl border border-brand-line bg-brand-surface/40" />
@@ -113,9 +113,9 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Interactive physics playground */}
+            {/* Interactive Tetris mini-game */}
             <div className="order-2 lg:col-span-6 w-full">
-              <PhysicsPlayground />
+              <TetrisPanel />
             </div>
           </div>
         </Section>

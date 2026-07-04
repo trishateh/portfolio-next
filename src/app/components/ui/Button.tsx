@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses = {
   primary:
-    "bg-brand-purple hover:bg-brand-purpleDark text-white shadow-glow-purple transition-all duration-200",
+    "bg-brand-purpleDark hover:bg-[#6D28D9] text-white shadow-glow-purple transition-all duration-200",
   secondary:
     "bg-brand-blue hover:bg-blue-500 text-white transition-all duration-200",
   // Reserved for the single hero CTA — the only gradient-filled button.
