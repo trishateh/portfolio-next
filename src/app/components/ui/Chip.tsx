@@ -11,7 +11,7 @@ interface ChipProps {
 }
 
 const variantClasses = {
-  default: "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-slate-200",
+  default: "bg-white/5 border border-brand-line text-slate-300 hover:border-brand-line2 hover:text-white",
   accent: "bg-brand-accent/10 text-brand-accent border border-brand-accent/20 hover:bg-brand-accent/20",
   blue: "bg-brand-blue/10 text-brand-blue border border-brand-blue/20 hover:bg-brand-blue/20",
 };
@@ -38,8 +38,8 @@ export default function Chip({
         "inline-flex items-center rounded-full font-mono font-medium transition-all duration-200",
         variantClasses[variant],
         sizeClasses[size],
-        onClick && "cursor-pointer focus-visible:outline-brand-accent",
-        active && "ring-2 ring-brand-accent",
+        onClick && "cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-purple",
+        active && "border-brand-purple text-white bg-brand-purple/10",
         className
       )}
     >

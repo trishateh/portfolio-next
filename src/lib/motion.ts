@@ -99,3 +99,41 @@ export const hoverLift = {
   y: -4,
   transition: { duration: 0.16, ease: "easeOut" },
 };
+
+export const bentoHover = {
+  y: -4,
+  transition: { duration: 0.2 },
+};
+
+export const revealUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+// Container for masked hero line reveals (pair with heroLine children)
+export const heroLineStagger = {
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+// Child for masked hero line reveals; use inside an overflow-hidden wrapper
+export const heroLine = {
+  hidden: { y: "110%" },
+  show: {
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
