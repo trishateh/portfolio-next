@@ -63,9 +63,9 @@ const EmailSection = () => {
                     Open to what's next
                   </h3>
                   <p className="text-slate-300/90 leading-relaxed">
-                    I'm open to senior full-stack, web3, and product
-                    engineering roles. If you're building something with real
-                    users — on-chain or off — I'd like to hear about it.
+                    I'm open to full-stack, web3, and product engineering roles.
+                    If you're building something with real users — on-chain or
+                    off — I'd like to hear about it.
                   </p>
                 </div>
 

@@ -38,7 +38,7 @@ const HeroSection = () => {
                 variants={fadeUp}
                 className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-6"
               >
-                senior full-stack engineer · ex-medical doctor
+                senior full-stack engineer · web2 × web3
               </motion.p>
 
               {/* Main heading — two masked reveal lines */}
@@ -46,12 +46,12 @@ const HeroSection = () => {
                 variants={heroLineStagger}
                 className="font-display text-display-2xl text-white mb-6"
               >
-                <span className="block overflow-hidden">
+                <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
                   <motion.span variants={heroLine} className="block">
                     Full-stack engineer.
                   </motion.span>
                 </span>
-                <span className="block overflow-hidden">
+                <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
                   <motion.span variants={heroLine} className="block">
                     Zero to <span className="gradient-text">shipped.</span>
                   </motion.span>
@@ -61,14 +61,15 @@ const HeroSection = () => {
               {/* Sub */}
               <motion.p
                 variants={fadeUp}
-                className="text-slate-400 text-lg max-w-xl mx-auto lg:mx-0 mb-8"
+                className="text-slate-300/90 text-lg max-w-xl mx-auto lg:mx-0 mb-8"
               >
-                Trisha Teh — five years shipping products end to end, from DeFi
-                protocols to e-commerce and mobile. Formerly a medical doctor.
+                I&apos;m Trisha. For the past five years I&apos;ve taken
+                products from first commit to production — DeFi protocols,
+                e-commerce platforms, mobile apps, and everything in between.
               </motion.p>
 
               {/* Stat line */}
-              <motion.div
+              {/* <motion.div
                 variants={fadeUp}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 font-mono text-sm text-slate-500 mb-8"
               >
@@ -78,7 +79,7 @@ const HeroSection = () => {
                     <span>{stat}</span>
                   </React.Fragment>
                 ))}
-              </motion.div>
+              </motion.div> */}
 
               {/* CTA row */}
               <motion.div

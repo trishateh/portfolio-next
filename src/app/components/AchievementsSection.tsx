@@ -17,24 +17,24 @@ interface Stat {
 
 const stats: Stat[] = [
   {
-    monoLabel: "volume_processed",
+    monoLabel: "volume processed",
     prefix: "$",
     value: 200,
     suffix: "M+",
   },
   {
-    monoLabel: "users_reached",
+    monoLabel: "users reached",
     prefix: "~",
     value: 300,
     suffix: "K+",
   },
   {
-    monoLabel: "products_shipped",
+    monoLabel: "products shipped",
     value: 20,
     suffix: "+",
   },
   {
-    monoLabel: "years_experience",
+    monoLabel: "years of experience",
     value: 5,
     suffix: "+",
   },

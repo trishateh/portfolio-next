@@ -5,7 +5,7 @@ export const ProjectSchema = z.object({
   id: z.number(),
   slug: z.string(),
   title: z.string(),
-  category: z.enum(["dapp", "smart-contract", "web"]),
+  category: z.enum(["dapp", "smart-contract", "web", "mobile"]),
   summary: z.string(),
   description: z.string(),
   stack: z.array(z.string()),
@@ -233,13 +233,12 @@ export const projects: Project[] = [
       repo: "https://polygonscan.com/address/0x6efd558C9694Be4A40EE260dcA3Db56689f61be7#code",
       caseStudy: "/projects/arcaden",
     },
-    featured: true,
     impact: [
       "Enabled gasless gamified staking mechanism which increased user engagement by 300%",
     ],
   },
   {
-    id: 11,
+    id: 13,
     slug: "lavarage-dapp",
     title: "Lavarage DApp",
     category: "dapp",
@@ -280,11 +279,10 @@ export const projects: Project[] = [
       demo: "https://partners-portal.lavarave.wtf",
       repo: "https://lavarage-api.readme.io",
     },
-    featured: true,
     impact: ["Enabled secure API key management for 20+ partners"],
   },
   {
-    id: 13,
+    id: 14,
     slug: "lenders-portal",
     title: "Lenders Portal",
     category: "dapp",
@@ -301,13 +299,12 @@ export const projects: Project[] = [
       demo: "https://yield.lavarage.xyz",
       repo: "https://lavarage.gitbook.io/lavarage",
     },
-    featured: true,
     impact: [
       "Facilitated loan offer creation, real-time monitoring and risk assessment",
     ],
   },
   {
-    id: 14,
+    id: 15,
     slug: "mapacs-asm-2026",
     title: "MAPACS Annual Scientific Congress 2026",
     category: "web",
@@ -329,7 +326,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 15,
+    id: 16,
     slug: "yei-finance",
     title: "Yei Finance",
     category: "dapp",
@@ -351,7 +348,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 16,
+    id: 17,
     slug: "clovis",
     title: "Clovis",
     category: "dapp",
@@ -371,6 +368,28 @@ export const projects: Project[] = [
     impact: [
       "Built cross-chain DeFi lending and borrowing platform from the ground up",
       "Deployed on testnet with multi-chain interoperability across networks",
+    ],
+  },
+  {
+    id: 11,
+    slug: "pinjocep",
+    title: "Pinjocep",
+    category: "mobile",
+    summary:
+      "The official borrower app for a licensed lending platform — live on the App Store and Google Play.",
+    description:
+      "Mobile app a licensed lending platform. Covers the full loan lifecycle: application and eKYC onboarding, digital agreement signing, loan and repayment tracking, repayments, and early settlement.",
+    stack: ["React Native", "Expo", "TypeScript", "EAS"],
+    heroMedia: {
+      type: "image",
+      src: "/images/projects/pinjocep.webp",
+    },
+    links: {
+      demo: "https://play.google.com/store/apps/details?id=com.srijeyasumi.pinjocep",
+    },
+    impact: [
+      "Shipped to production on both the App Store and Google Play",
+      "Handles the full loan lifecycle — onboarding, eKYC, digital signing, and repayments",
     ],
   },
 ];

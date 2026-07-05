@@ -71,18 +71,19 @@ const AboutSection = () => {
                 </div>
                 <div className="space-y-3 leading-relaxed text-slate-300/90">
                   <p>
-                    I started out as a medical doctor — trained to reason under
-                    pressure and get the small details right. In 2021 I taught
-                    myself to code and switched careers, trading diagnostics for
-                    building software full-time.
+                    My first career was medicine — a job that teaches you to
+                    stay calm under pressure and to never skip the small
+                    details. Then I discovered how much I loved building
+                    things, taught myself to code, and never looked back.
                   </p>
                   <p>
-                    Five years on, I&apos;m a senior full-stack engineer who
-                    ships across web2 and web3 — from DeFi protocols and smart
-                    contracts to e-commerce platforms and mobile apps, plus the
-                    interfaces people actually use. The clinical instinct for
-                    precision and consequence never left; it just found a new
-                    domain.
+                    Today I&apos;m a senior full-stack engineer working across
+                    web2 and web3 — DeFi protocols and smart contracts on one
+                    side, e-commerce platforms and mobile apps on the other,
+                    and the interfaces people actually use in between. The
+                    habits from medicine stuck: sweat the details, own the
+                    outcome, and remember there&apos;s a person on the other
+                    end of everything you ship.
                   </p>
                 </div>
               </div>

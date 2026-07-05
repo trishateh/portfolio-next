@@ -24,7 +24,7 @@ export default function AchievementsList({
           variants={fadeUp}
           className="flex items-baseline justify-between gap-4 py-3 first:pt-0 last:pb-0"
         >
-          <span className="text-sm text-slate-300">{achievement.name}</span>
+          <span className="text-base text-slate-300">{achievement.name}</span>
           {achievement.year && (
             <span className="flex-shrink-0 font-mono text-xs text-slate-500">
               {achievement.year}

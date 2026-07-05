@@ -2,20 +2,21 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { getAllProjects, Project } from "@/lib/projects";
+import { getAllProjects } from "@/lib/projects";
 import ProjectCard from "./ui/ProjectCard";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
 import Chip from "./ui/Chip";
 import { fadeUp, stagger } from "@/lib/motion";
 
-type FilterType = "all" | "dapp" | "smart-contract" | "web";
+type FilterType = "all" | "dapp" | "smart-contract" | "web" | "mobile";
 
 const filters: { label: string; value: FilterType }[] = [
   { label: "All", value: "all" },
   { label: "DApps", value: "dapp" },
   { label: "Smart Contracts", value: "smart-contract" },
   { label: "Web", value: "web" },
+  { label: "Mobile", value: "mobile" },
 ];
 
 const ProjectsSection = () => {
@@ -57,10 +58,10 @@ const ProjectsSection = () => {
             <h2 className="font-display text-display-lg text-white mb-6">
               Things I&apos;ve <span className="gradient-text">shipped</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Production work across the stack — e-commerce and event platforms,
-              mobile apps, and DeFi protocols with the smart contracts behind
-              them.
+            <p className="text-slate-300/90 text-lg max-w-2xl mx-auto">
+              Production work alongside personal builds — e-commerce and event
+              platforms, mobile apps, DeFi protocols, and the experiments where
+              I try new ideas first.
             </p>
           </motion.div>
 

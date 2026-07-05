@@ -18,6 +18,7 @@ const categoryLabels = {
   dapp: "DApp",
   "smart-contract": "Smart Contract",
   web: "Web App",
+  mobile: "Mobile App",
 } as const;
 
 export default function ProjectCard({
@@ -71,25 +72,33 @@ export default function ProjectCard({
             <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-purple transition-colors">
               {project.title}
             </h3>
-            <p className="text-slate-400 line-clamp-3 mb-4 leading-relaxed text-sm">
+            <p className="text-slate-300/90 line-clamp-3 mb-4 leading-relaxed text-base">
               {project.summary}
             </p>
 
-            {/* Impact — featured only */}
-            {featured && project.impact && project.impact.length > 0 && (
-              <ul className="mb-4 space-y-1.5">
-                {project.impact.slice(0, 2).map((line) => (
-                  <li
-                    key={line}
-                    className="flex gap-2 text-sm text-slate-400 leading-relaxed"
-                  >
-                    <span className="font-mono text-xs text-brand-accent shrink-0 pt-0.5">
-                      impact:
-                    </span>
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Impact — two lines on featured cards, one otherwise */}
+            {project.impact && project.impact.length > 0 && (
+              <div className="mb-4">
+                <span className="font-mono text-xs uppercase tracking-[0.15em] text-brand-accent">
+                  impact
+                </span>
+                <ul className="mt-1.5 space-y-1">
+                  {project.impact.slice(0, featured ? 2 : 1).map((line) => (
+                    <li
+                      key={line}
+                      className="flex gap-2 text-sm text-slate-300/90 leading-relaxed"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="text-brand-accent shrink-0"
+                      >
+                        —
+                      </span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
 

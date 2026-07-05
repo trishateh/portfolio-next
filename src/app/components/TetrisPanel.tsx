@@ -740,7 +740,7 @@ export default function TetrisPanel({ className }: TetrisPanelProps) {
             tetris
           </span>
           <span className="font-mono text-xs text-slate-400 -mt-2">
-            i stack blocks for a living — try it
+            chaining blocks together is literally my job — your turn
           </span>
           <Button variant="primary" size="sm" onClick={() => controlRef.current.play()}>
             play
