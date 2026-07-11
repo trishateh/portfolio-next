@@ -19,7 +19,7 @@ const variantClasses = {
   gradient:
     "bg-brand-gradient text-black font-semibold hover:opacity-90 transition-all duration-200",
   outline:
-    "border border-brand-line hover:border-brand-line2 text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200",
+    "border border-brand-line hover:border-brand-purple/70 text-slate-300 hover:text-white hover:bg-brand-purple/10 transition-all duration-200",
   ghost:
     "text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200",
 };

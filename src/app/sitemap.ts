@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllCaseStudies } from "@/lib/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -10,11 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1.0,
     },
-    {
-      url: "https://www.trishateh.com/projects/arcaden",
+    ...getAllCaseStudies().map((cs) => ({
+      url: `https://www.trishateh.com/projects/${cs.slug}`,
       lastModified: now,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.7,
-    },
+    })),
   ];
 }

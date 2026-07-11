@@ -12,15 +12,15 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   {
     title: "About",
-    path: "#about",
+    path: "/#about",
   },
   {
     title: "Projects",
-    path: "#projects",
+    path: "/#projects",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/#contact",
   },
 ];
 
@@ -76,7 +76,7 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-200 group-hover:w-full"></span>
                 </a>
               ))}
-            <Button variant="outline" size="sm" href="#contact">
+            <Button variant="outline" size="sm" href="/#contact">
               Contact
             </Button>
           </div>

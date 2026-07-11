@@ -125,6 +125,7 @@ export const projects: Project[] = [
     links: {
       demo: "https://nft-drop-starter-project-neon.vercel.app",
       repo: "https://github.com/trishateh/nft-drop-starter-project",
+      caseStudy: "/projects/solana-nft-drop",
     },
     impact: ["Utilized Metaplex to create NFTs with the SPL Token Program"],
   },
@@ -166,6 +167,7 @@ export const projects: Project[] = [
     links: {
       demo: "https://domain-service.vercel.app",
       repo: "https://github.com/trishateh/domain-service-backend",
+      caseStudy: "/projects/domain-service",
     },
     impact: ["Domain Name Service on Polygon Layer 2"],
   },
@@ -254,6 +256,7 @@ export const projects: Project[] = [
     links: {
       demo: "https://app.lavarage.xyz",
       repo: "https://lavarage.gitbook.io/lavarage",
+      caseStudy: "/projects/lavarage-dapp",
     },
     featured: true,
     impact: [
@@ -278,6 +281,7 @@ export const projects: Project[] = [
     links: {
       demo: "https://partners-portal.lavarave.wtf",
       repo: "https://lavarage-api.readme.io",
+      caseStudy: "/projects/partners-portal",
     },
     impact: ["Enabled secure API key management for 20+ partners"],
   },
@@ -298,6 +302,7 @@ export const projects: Project[] = [
     links: {
       demo: "https://yield.lavarage.xyz",
       repo: "https://lavarage.gitbook.io/lavarage",
+      caseStudy: "/projects/lenders-portal",
     },
     impact: [
       "Facilitated loan offer creation, real-time monitoring and risk assessment",
@@ -319,6 +324,7 @@ export const projects: Project[] = [
     },
     links: {
       demo: "https://mapacs.vercel.app/events/asm-2026",
+      caseStudy: "/projects/mapacs-asm-2026",
     },
     impact: [
       "Delivered full conference digital infrastructure end-to-end",
@@ -341,6 +347,7 @@ export const projects: Project[] = [
     },
     links: {
       demo: "https://app.yei.finance",
+      caseStudy: "/projects/yei-finance",
     },
     featured: true,
     impact: [
@@ -363,6 +370,7 @@ export const projects: Project[] = [
     },
     links: {
       demo: "https://testnet.clovis.network",
+      caseStudy: "/projects/clovis",
     },
     featured: true,
     impact: [
@@ -386,6 +394,7 @@ export const projects: Project[] = [
     },
     links: {
       demo: "https://play.google.com/store/apps/details?id=com.srijeyasumi.pinjocep",
+      caseStudy: "/projects/pinjocep",
     },
     impact: [
       "Shipped to production on both the App Store and Google Play",

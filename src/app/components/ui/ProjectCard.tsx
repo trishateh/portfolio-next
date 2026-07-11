@@ -118,19 +118,43 @@ export default function ProjectCard({
             </div>
           </div>
 
-          {/* Actions */}
+          {/* Actions — the case study is the primary destination when it exists */}
           <div className="flex gap-3 mt-auto">
-            {project.links?.demo && (
+            {project.links?.caseStudy && (
               <Button
-                href={project.links.demo}
-                external
+                href={project.links.caseStudy}
                 size="sm"
                 className="flex-1"
+                aria-label={`${project.title} deep dive`}
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Demo
+                <FileText className="w-4 h-4 mr-2" />
+                Deep Dive
               </Button>
             )}
+
+            {project.links?.demo &&
+              (project.links?.caseStudy ? (
+                <Button
+                  href={project.links.demo}
+                  external
+                  variant="outline"
+                  size="sm"
+                  className="!px-3"
+                  aria-label={`${project.title} live demo`}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </Button>
+              ) : (
+                <Button
+                  href={project.links.demo}
+                  external
+                  size="sm"
+                  className="flex-1"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Live Demo
+                </Button>
+              ))}
 
             {project.links?.repo && (
               <Button
@@ -142,18 +166,6 @@ export default function ProjectCard({
                 aria-label={`${project.title} repository on GitHub`}
               >
                 <Github className="w-4 h-4" />
-              </Button>
-            )}
-
-            {project.links?.caseStudy && (
-              <Button
-                href={project.links.caseStudy}
-                variant="outline"
-                size="sm"
-                className="!px-3"
-                aria-label={`${project.title} case study`}
-              >
-                <FileText className="w-4 h-4" />
               </Button>
             )}
           </div>
