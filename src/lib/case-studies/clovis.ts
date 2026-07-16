@@ -39,7 +39,7 @@ export const clovis: CaseStudy = {
       heading: "Borrow against your earn position without giving up the yield",
       body: [
         "The borrow flow answers the question every yield product eventually runs into: how do I get liquidity out of a position without unwinding it and losing the yield it's earning? Clovis lets a user borrow against an earn position while it keeps compounding — the collateral stays deposited and productive instead of being pulled out to free up cash.",
-        "The Borrow page lays the market out plainly: Total Supply, Total Borrow, and Total Available Liquidity up top, then an All Markets list of collateral pairs — USDT against USDC and USDC against USDT — each showing its utilization, the yield the collateral still earns, and the borrow rate charged on top. A user can see, in one row, that their collateral is working on both sides at once.",
+        "The Borrow page lays the market out plainly: Total Supply, Total Borrow, and Total Available Liquidity up top, then an All Markets list of collateral pairs each showing its utilization, the yield the collateral still earns, and the borrow rate charged on top. A user can see, in one row, that their collateral is working on both sides at once.",
       ],
       media: [
         {
