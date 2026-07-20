@@ -6,32 +6,34 @@ import { cn } from "@/lib/utils";
 interface GradientBGProps {
   children: ReactNode;
   className?: string;
+  // Retained for API compatibility. Orbs are retired; this prop is now a no-op.
   showOrbs?: boolean;
+  // "visible" is required on pages using position: sticky, which
+  // overflow-hidden would otherwise break.
+  overflow?: "hidden" | "visible";
 }
 
-export default function GradientBG({ 
-  children, 
+export default function GradientBG({
+  children,
   className,
-  showOrbs = false 
+  overflow = "hidden",
 }: GradientBGProps) {
   return (
-    <div className={cn("relative overflow-hidden", className)}>
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-hero-gradient" />
-      
-      {/* Animated orbs */}
-      {showOrbs && (
-        <>
-          <div className="hero-orb hero-orb-1" />
-          <div className="hero-orb hero-orb-2" />
-          <div className="hero-orb hero-orb-3" />
-        </>
+    <div
+      className={cn(
+        "relative bg-brand-bg",
+        overflow === "hidden" && "overflow-hidden",
+        className
       )}
-      
+    >
+      {/* Soft purple bloom at the top of the section */}
+      <div className="pointer-events-none absolute inset-0 bg-brand-glow-radial" />
+
+      {/* Faint block-grid texture, radially masked at the edges */}
+      <div className="pointer-events-none absolute inset-0 bg-block-grid" />
+
       {/* Content */}
-      <div className="relative z-10">
-        {children}
-      </div>
+      <div className="relative z-10 w-full">{children}</div>
     </div>
   );
 }

@@ -2,32 +2,31 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Github, Linkedin, Twitter, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
 import Card from "./ui/Card";
-import Button from "./ui/Button";
 import { FeedbackForm } from "./FeedbackForm";
 import { fadeUp, slideInLeft, slideInRight, stagger } from "@/lib/motion";
 
 const socialLinks = [
   {
     name: "GitHub",
+    label: "github.com/trishateh",
     href: "https://github.com/trishateh",
     icon: Github,
-    color: "hover:text-white",
   },
   {
     name: "LinkedIn",
+    label: "linkedin.com/in/trishateh",
     href: "https://linkedin.com/in/trishateh",
     icon: Linkedin,
-    color: "hover:text-blue-400",
   },
   {
-    name: "Twitter",
+    name: "X",
+    label: "@_disco_giraffe",
     href: "https://twitter.com/_disco_giraffe",
     icon: Twitter,
-    color: "hover:text-blue-400",
   },
 ];
 
@@ -46,14 +45,13 @@ const EmailSection = () => {
         >
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Get In <span className="gradient-text">Touch</span>
-            </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Whether you have a project in mind, want to collaborate, or just
-              want to say hi, I'd love to hear from you. Let's build something
-              amazing together!
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
+              {"contact"}
             </p>
+            <h2 className="font-display text-display-lg text-white">
+              Let's build something{" "}
+              <span className="gradient-text">people use</span>
+            </h2>
           </motion.div>
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -61,51 +59,34 @@ const EmailSection = () => {
             <motion.div variants={slideInLeft} className="lg:col-span-5">
               <Card className="p-8">
                 <div className="mb-8">
-                  <div className="w-12 h-12 bg-brand-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <MessageCircle className="w-6 h-6 text-brand-accent" />
-                  </div>
                   <h3 className="text-2xl font-semibold text-white mb-4">
-                    Let's start a conversation
+                    Open to what's next
                   </h3>
-                  <p className="text-slate-400 leading-relaxed mb-6">
-                    I'm always interested in hearing about new opportunities,
-                    interesting projects, and ways to collaborate in the Web3
-                    space.
+                  <p className="text-slate-300/90 leading-relaxed">
+                    I'm open to full-stack, web3, and product engineering roles.
+                    If you're building something with real users — on-chain or
+                    off — I'd like to hear about it.
                   </p>
                 </div>
 
-                {/* Direct contact */}
-                {/* <div className="mb-8">
-                  <Button
-                    href="mailto:hello@trishateh.com"
-                    variant="outline"
-                    className="w-full justify-start"
-                  >
-                    <Mail className="w-5 h-5 mr-3" />
-                    hello@trishateh.com
-                  </Button>
-                </div> */}
-
-                {/* Social links */}
-                <div>
-                  <p className="text-slate-400 text-sm mb-4">Find me on</p>
-                  <div className="flex gap-4">
-                    {socialLinks.map((social) => {
-                      const Icon = social.icon;
-                      return (
-                        <a
-                          key={social.name}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`p-3 text-slate-400 transition-colors duration-200 rounded-lg hover:bg-slate-800/50 ${social.color}`}
-                          aria-label={social.name}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </a>
-                      );
-                    })}
-                  </div>
+                {/* Contact metadata */}
+                <div className="flex flex-col gap-4">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-3 font-mono text-sm text-slate-400 transition-colors duration-200 hover:text-brand-purple"
+                        aria-label={social.name}
+                      >
+                        <Icon className="w-4 h-4 shrink-0" />
+                        {social.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </Card>
             </motion.div>

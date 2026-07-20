@@ -1,8 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /private/
-
-User-Agent: Googlebot-Image
-Disallow: /
-
-Sitemap: https://www.trishateh.com/sitemap.xml

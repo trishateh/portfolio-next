@@ -2,20 +2,21 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { getAllProjects, Project } from "@/lib/projects";
+import { getAllProjects } from "@/lib/projects";
 import ProjectCard from "./ui/ProjectCard";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
 import Chip from "./ui/Chip";
 import { fadeUp, stagger } from "@/lib/motion";
 
-type FilterType = "all" | "dapp" | "smart-contract" | "web";
+type FilterType = "all" | "dapp" | "smart-contract" | "web" | "mobile";
 
 const filters: { label: string; value: FilterType }[] = [
   { label: "All", value: "all" },
   { label: "DApps", value: "dapp" },
   { label: "Smart Contracts", value: "smart-contract" },
   { label: "Web", value: "web" },
+  { label: "Mobile", value: "mobile" },
 ];
 
 const ProjectsSection = () => {
@@ -51,12 +52,16 @@ const ProjectsSection = () => {
         >
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Featured <span className="gradient-text">Projects</span>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-accent mb-4">
+              {"projects"}
+            </p>
+            <h2 className="font-display text-display-lg text-white mb-6">
+              Things I&apos;ve <span className="gradient-text">shipped</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              A collection of projects spanning DeFi protocols, smart contracts,
-              full-stack Web3 development, web & mobile applications.
+            <p className="text-slate-300/90 text-lg max-w-2xl mx-auto">
+              Production work alongside personal builds — e-commerce and event
+              platforms, mobile apps, DeFi protocols, and the experiments where
+              I try new ideas first.
             </p>
           </motion.div>
 
@@ -78,19 +83,21 @@ const ProjectsSection = () => {
             ))}
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid — bento */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-4 auto-rows-fr"
           >
             {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={fadeUp}
                 transition={{ delay: index * 0.1 }}
-                className="h-full"
+                className={`h-full ${
+                  project.featured ? "md:col-span-2" : ""
+                }`}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} featured={project.featured} />
               </motion.div>
             ))}
           </motion.div>

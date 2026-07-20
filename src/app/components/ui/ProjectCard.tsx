@@ -11,25 +11,35 @@ import { hoverLift } from "@/lib/motion";
 
 interface ProjectCardProps {
   project: Project;
+  featured?: boolean;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
-  const categoryColors = {
-    dapp: "accent",
-    "smart-contract": "blue",
-    web: "default",
-  } as const;
+const categoryLabels = {
+  dapp: "DApp",
+  "smart-contract": "Smart Contract",
+  web: "Web App",
+  mobile: "Mobile App",
+} as const;
 
+export default function ProjectCard({
+  project,
+  featured = false,
+}: ProjectCardProps) {
   return (
     <motion.div whileHover={hoverLift} className="group h-full">
       <Card className="overflow-hidden h-full flex flex-col">
         {/* Hero Media */}
-        <div className="aspect-video overflow-hidden rounded-t-2xl bg-slate-800 relative">
+        <div
+          className={`overflow-hidden rounded-t-2xl bg-slate-800 relative ${
+            featured ? "aspect-video md:aspect-[2/1]" : "aspect-video"
+          }`}
+        >
           {project.heroMedia.type === "image" ? (
             <Image
               src={project.heroMedia.src}
               alt={project.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
@@ -46,15 +56,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Category badge */}
           <div className="absolute top-4 left-4">
-            <div className="backdrop-blur-md bg-black/30 rounded-full px-3 py-1 border border-white/20">
-              <span className="text-xs font-medium text-white">
-                {project.category === "smart-contract"
-                  ? "Smart Contract"
-                  : project.category === "web"
-                  ? "Web App"
-                  : "DApp"}
-              </span>
-            </div>
+            <Chip
+              size="sm"
+              className="bg-black/40 backdrop-blur-md text-white border border-white/20"
+            >
+              {categoryLabels[project.category]}
+            </Chip>
           </div>
         </div>
 
@@ -62,25 +69,38 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="p-6 flex-1 flex flex-col">
           {/* Title & Summary */}
           <div className="flex-1">
-            <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-accent transition-colors">
+            <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-purple transition-colors">
               {project.title}
             </h3>
-            <p className="text-slate-400 line-clamp-3 mb-4 leading-relaxed text-sm">
+            <p className="text-slate-300/90 line-clamp-3 mb-4 leading-relaxed text-base">
               {project.summary}
             </p>
-          </div>
 
-          {/* Impact (if available) */}
-          {project.impact && project.impact.length > 0 && (
-            <div className="mb-4">
-              <p className="text-sm text-brand-accent font-medium mb-2">
-                Key Impact:
-              </p>
-              <p className="text-sm text-slate-400 line-clamp-2">
-                {project.impact[0]}
-              </p>
-            </div>
-          )}
+            {/* Impact — two lines on featured cards, one otherwise */}
+            {project.impact && project.impact.length > 0 && (
+              <div className="mb-4">
+                <span className="font-mono text-xs uppercase tracking-[0.15em] text-brand-accent">
+                  impact
+                </span>
+                <ul className="mt-1.5 space-y-1">
+                  {project.impact.slice(0, featured ? 2 : 1).map((line) => (
+                    <li
+                      key={line}
+                      className="flex gap-2 text-sm text-slate-300/90 leading-relaxed"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="text-brand-accent shrink-0"
+                      >
+                        —
+                      </span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
 
           {/* Tech Stack */}
           <div className="mb-6">
@@ -98,19 +118,43 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
           </div>
 
-          {/* Actions */}
+          {/* Actions — the case study is the primary destination when it exists */}
           <div className="flex gap-3 mt-auto">
-            {project.links?.demo && (
+            {project.links?.caseStudy && (
               <Button
-                href={project.links.demo}
-                external
+                href={project.links.caseStudy}
                 size="sm"
                 className="flex-1"
+                aria-label={`${project.title} deep dive`}
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Demo
+                <FileText className="w-4 h-4 mr-2" />
+                Deep Dive
               </Button>
             )}
+
+            {project.links?.demo &&
+              (project.links?.caseStudy ? (
+                <Button
+                  href={project.links.demo}
+                  external
+                  variant="outline"
+                  size="sm"
+                  className="!px-3"
+                  aria-label={`${project.title} live demo`}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </Button>
+              ) : (
+                <Button
+                  href={project.links.demo}
+                  external
+                  size="sm"
+                  className="flex-1"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Live Demo
+                </Button>
+              ))}
 
             {project.links?.repo && (
               <Button
@@ -119,19 +163,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 variant="outline"
                 size="sm"
                 className="!px-3"
+                aria-label={`${project.title} repository on GitHub`}
               >
                 <Github className="w-4 h-4" />
-              </Button>
-            )}
-
-            {project.links?.caseStudy && (
-              <Button
-                href={project.links.caseStudy}
-                variant="outline"
-                size="sm"
-                className="!px-3"
-              >
-                <FileText className="w-4 h-4" />
               </Button>
             )}
           </div>

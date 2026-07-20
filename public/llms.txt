@@ -1,0 +1,18 @@
+# Trisha Teh — Senior Full-Stack Web3 Engineer
+
+Trisha Teh is a Senior Full-Stack Web3 Engineer and Blockchain Developer, and a former medical doctor (MBBS, International Medical University). She has 5+ years of experience in web3, having shipped 20+ projects across 5+ chains, processing $200M+ in volume via Lavarage and reaching ~300k users. She is currently a Web3 Full Stack Engineer at Yei Finance and spoke at Solana Summit 2025.
+
+## Key Links
+
+- Website: https://www.trishateh.com
+- Arcaden case study: https://www.trishateh.com/projects/arcaden
+- GitHub: https://github.com/trishateh
+- LinkedIn: https://www.linkedin.com/in/trishateh
+- X (Twitter): https://twitter.com/_disco_giraffe
+
+## Flagship Projects
+
+- Lavarage DApp — Decentralized spot margin trading platform for long-tail assets on Solana; processed $200M+ in trading volume.
+- Yei Finance — Production-grade DeFi super-app on Sei spanning money market, cross-chain bridge, and token swap.
+- Clovis — Cross-chain DeFi platform for lending and borrowing across multiple networks, currently live on testnet.
+- Partners / Lenders Portal — Portals for Lavarage partners to manage API keys and for liquidity providers to create, monitor, and manage loan offers.

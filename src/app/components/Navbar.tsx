@@ -6,20 +6,21 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "./ui/Container";
+import Button from "./ui/Button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   {
     title: "About",
-    path: "#about",
+    path: "/#about",
   },
   {
     title: "Projects",
-    path: "#projects",
+    path: "/#projects",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/#contact",
   },
 ];
 
@@ -43,41 +44,48 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-brand-surface2/80 backdrop-blur-md border-b border-slate-800"
+          ? "bg-brand-bg/80 backdrop-blur-md border-b border-brand-line"
           : "bg-transparent"
       )}
     >
       <Container>
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2 group">
             <Image
-              src="/images/logo.svg"
+              src="/images/logo-icon.svg"
               alt="Trisha Teh - Web3 Developer"
-              width={120}
-              height={40}
-              className="hover:opacity-80 transition-opacity duration-200"
+              width={32}
+              height={32}
+              className="group-hover:opacity-80 transition-opacity duration-200"
             />
+            <span className="font-mono text-sm text-white">trisha.teh</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                className="relative text-slate-300 hover:text-white transition-colors duration-200 group"
-              >
-                {link.title}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-200 group-hover:w-full"></span>
-              </a>
-            ))}
+            {navLinks
+              .filter((link) => link.title !== "Contact")
+              .map((link) => (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  className="relative font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200 group"
+                >
+                  {link.title}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-200 group-hover:w-full"></span>
+                </a>
+              ))}
+            <Button variant="outline" size="sm" href="/#contact">
+              Contact
+            </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
             className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+            aria-label={navbarOpen ? "Close menu" : "Open menu"}
           >
             {navbarOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -91,7 +99,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-brand-surface2/95 backdrop-blur-md border-b border-slate-800 md:hidden"
+              className="absolute top-full left-0 right-0 bg-brand-surface/95 backdrop-blur-md border-b border-brand-line md:hidden"
             >
               <Container>
                 <div className="py-6 space-y-4">
@@ -100,7 +108,7 @@ const Navbar = () => {
                       key={link.path}
                       href={link.path}
                       onClick={() => setNavbarOpen(false)}
-                      className="block text-slate-300 hover:text-white transition-colors duration-200 py-2"
+                      className="block font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors duration-200 py-2"
                     >
                       {link.title}
                     </a>

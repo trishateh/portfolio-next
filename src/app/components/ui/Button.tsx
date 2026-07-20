@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "gradient" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   external?: boolean;
@@ -12,13 +12,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses = {
   primary:
-    "bg-brand-accent hover:bg-brand-accentDark text-white shadow-glow hover:shadow-glow transition-all duration-200",
+    "bg-brand-purpleDark hover:bg-[#6D28D9] text-white shadow-glow-purple transition-all duration-200",
   secondary:
     "bg-brand-blue hover:bg-blue-500 text-white transition-all duration-200",
+  // Reserved for the single hero CTA — the only gradient-filled button.
+  gradient:
+    "bg-brand-gradient text-black font-semibold hover:opacity-90 transition-all duration-200",
   outline:
-    "border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-200",
+    "border border-brand-line hover:border-brand-purple/70 text-slate-300 hover:text-white hover:bg-brand-purple/10 transition-all duration-200",
   ghost:
-    "text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all duration-200",
+    "text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200",
 };
 
 const sizeClasses = {
@@ -37,13 +40,15 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses = cn(
-    "inline-flex items-center justify-center rounded-full font-medium focus-visible:outline-brand-accent disabled:opacity-50 disabled:cursor-not-allowed",
+    "inline-flex items-center justify-center rounded-full font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-purple disabled:opacity-50 disabled:cursor-not-allowed",
     variantClasses[variant],
     sizeClasses[size],
     className
   );
 
   if (href) {
+    const ariaLabel = props["aria-label"];
+
     if (external) {
       return (
         <a
@@ -51,6 +56,7 @@ export default function Button({
           target="_blank"
           rel="noopener noreferrer"
           className={baseClasses}
+          aria-label={ariaLabel}
         >
           {children}
         </a>
@@ -58,7 +64,7 @@ export default function Button({
     }
 
     return (
-      <Link href={href} className={baseClasses}>
+      <Link href={href} className={baseClasses} aria-label={ariaLabel}>
         {children}
       </Link>
     );

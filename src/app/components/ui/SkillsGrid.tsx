@@ -20,24 +20,22 @@ export default function SkillsGrid({ categories }: SkillsGridProps) {
       variants={stagger}
       initial="hidden"
       animate="show"
-      className="space-y-8"
+      className="space-y-5"
     >
       {categories.map((category, index) => (
         <motion.div key={index} variants={fadeUp}>
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500 mb-3">
             {category.title}
-          </h3>
-          <div className="flex flex-wrap gap-3">
+          </p>
+          <div className="flex flex-wrap gap-2">
             {category.skills.map((skill, skillIndex) => (
-              <motion.div
+              <Chip
                 key={skillIndex}
-                variants={fadeUp}
-                transition={{ delay: skillIndex * 0.05 }}
+                variant={category.variant || "default"}
+                size="sm"
               >
-                <Chip variant={category.variant || "default"}>
-                  {skill}
-                </Chip>
-              </motion.div>
+                {skill}
+              </Chip>
             ))}
           </div>
         </motion.div>

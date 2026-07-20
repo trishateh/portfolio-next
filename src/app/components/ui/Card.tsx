@@ -5,19 +5,29 @@ interface CardProps {
   children: ReactNode;
   className?: string;
   hover?: boolean;
+  topAccent?: boolean;
 }
 
-export default function Card({ 
-  children, 
+export default function Card({
+  children,
   className,
-  hover = true 
+  hover = true,
+  topAccent = false,
 }: CardProps) {
   return (
-    <div className={cn(
-      "rounded-2xl ring-1 ring-slate-800 bg-brand-surface transition-all duration-200",
-      hover && "hover:ring-slate-700 hover:shadow-card-hover",
-      className
-    )}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-2xl bg-brand-surface shadow-card transition-all duration-200",
+        hover && "hover:shadow-card-hover",
+        className
+      )}
+    >
+      {topAccent && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-brand-gradient"
+        />
+      )}
       {children}
     </div>
   );
