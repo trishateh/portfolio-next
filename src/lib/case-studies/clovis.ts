@@ -10,7 +10,7 @@ export const clovis: CaseStudy = {
   role: "Full-stack Engineer",
   stack: ["React", "TypeScript", "Solidity", "Base Sepolia"],
   stats: [
-    { value: "2", label: "multi-chain Earn Vaults" },
+    { value: "2+", label: "multi-chain Earn Vaults" },
     { value: "Base Sepolia", label: "testnet hub the vaults settle to" },
     { value: "Hub + spoke", label: "cross-chain accounting architecture" },
   ],
