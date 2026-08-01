@@ -735,11 +735,11 @@ export default function TetrisPanel({ className }: TetrisPanelProps) {
 
       {/* Overlays */}
       {status === "idle" && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-brand-bg/40">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-brand-bg/40 pr-24 md:pr-28">
           <span className="font-mono text-sm uppercase tracking-[0.3em] text-white">
             tetris
           </span>
-          <span className="font-mono text-xs text-slate-400 -mt-2">
+          <span className="font-mono text-xs text-slate-400 -mt-2 px-4 text-center">
             chaining blocks together is literally my job — your turn
           </span>
           <Button variant="primary" size="sm" onClick={() => controlRef.current.play()}>
@@ -752,15 +752,15 @@ export default function TetrisPanel({ className }: TetrisPanelProps) {
       )}
 
       {status === "paused" && (
-        <div className="absolute inset-0 flex items-center justify-center bg-brand-bg/60">
-          <span className="font-mono text-xs text-slate-400">
+        <div className="absolute inset-0 flex items-center justify-center bg-brand-bg/60 pr-24 md:pr-28">
+          <span className="font-mono text-xs text-slate-400 px-4 text-center">
             paused — press p or click to resume
           </span>
         </div>
       )}
 
       {status === "over" && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-brand-bg/70">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-brand-bg/70 pr-24 md:pr-28">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
             game over
           </span>
