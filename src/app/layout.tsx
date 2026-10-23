@@ -1,29 +1,32 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
+// Self-hosted latin subsets of the Google Fonts variable files. Google
+// intermittently serves extensionless font URLs that crash the Next 14.1
+// `next/font/google` loader at build time.
+const instrumentSans = localFont({
+  src: "./fonts/InstrumentSans-latin.woff2",
   variable: "--font-instrument-sans",
-  weight: ["400", "500", "600"],
+  weight: "400 600",
   display: "swap",
-  // Next 14.1 has no fallback metrics for this font.
+  // Off to keep the same load-time fallback as when served from Google.
   adjustFontFallback: false,
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+const jetbrainsMono = localFont({
+  src: "./fonts/JetBrainsMono-latin.woff2",
   variable: "--font-jetbrains-mono",
+  weight: "100 800",
   display: "swap",
 });
 
-// No `weight`: with static weights Google serves extensionless font URLs the
-// Next 14.1 loader cannot parse, so load the variable font instead.
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
+const bricolage = localFont({
+  src: "./fonts/BricolageGrotesque-latin.woff2",
   variable: "--font-bricolage",
+  weight: "200 800",
   display: "swap",
-  // Next 14.1 has no fallback metrics for this font.
+  // Off to keep the same load-time fallback as when served from Google.
   adjustFontFallback: false,
 });
 
