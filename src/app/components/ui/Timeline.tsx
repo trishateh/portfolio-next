@@ -31,24 +31,33 @@ export default function Timeline({ items }: TimelineProps) {
       />
 
       <div className="space-y-6">
-        {items.map((item, index) => (
-          <motion.div key={index} variants={fadeUp} className="relative">
-            {/* Node on the spine */}
-            <span
-              aria-hidden
-              className={`absolute -left-6 top-1.5 h-2 w-2 -translate-x-1/2 rounded-full ${
-                item.current ? "bg-brand-accent shadow-glow" : "bg-brand-line2"
-              }`}
-            />
-            <p className="font-mono text-xs text-slate-500 mb-1">
-              {item.period}
-            </p>
-            <h3 className="text-white font-medium leading-tight">
-              {item.title}
-            </h3>
-            <p className="text-sm text-brand-accent">{item.company}</p>
-          </motion.div>
-        ))}
+        {items.map((item, index) => {
+          // Latest role is brightest; older roles fade. Opacity lives on the
+          // node and company text, not the wrapper, since framer animates the
+          // wrapper's opacity for the reveal.
+          const dim = Math.max(0.3, 1 - index * 0.17);
+          return (
+            <motion.div key={index} variants={fadeUp} className="relative">
+              {/* Node on the spine */}
+              <span
+                aria-hidden
+                className={`absolute -left-6 top-1.5 h-2 w-2 -translate-x-1/2 rounded-full bg-brand-accent ${
+                  item.current ? "shadow-glow" : ""
+                }`}
+                style={{ opacity: dim }}
+              />
+              <p className="font-mono text-xs text-slate-500 mb-1">
+                {item.period}
+              </p>
+              <h3 className="text-white font-medium leading-tight">
+                {item.title}
+              </h3>
+              <p className="text-sm text-brand-accent" style={{ opacity: dim }}>
+                {item.company}
+              </p>
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );

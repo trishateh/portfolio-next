@@ -62,7 +62,7 @@ export const experiences: TimelineItem[] = [
     company: "Lavarage",
     period: "November 2024 - October 2025",
     location: "Singapore, Remote",
-    current: true,
+    current: false,
     responsibilities: [
       "Full stack development of a decentralized trading platform handling $200M+ in trading volume.",
       "Created client SDKs from smart contracts for seamless external integration.",
