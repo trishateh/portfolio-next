@@ -123,3 +123,37 @@ body {
     );
   }
 }
+
+/* Hero tetromino field. Size containment lets the drift use cqh, the field's
+   own height, so each piece crosses the full hero regardless of viewport. */
+.tetromino-field {
+  container-type: size;
+}
+
+.tetromino {
+  animation: tetromino-drift var(--d) linear infinite;
+  animation-delay: var(--delay);
+  will-change: transform;
+}
+
+@keyframes tetromino-drift {
+  from {
+    transform: translate3d(0, -120px, 0) rotate(var(--r));
+  }
+  to {
+    /* vh line is the fallback for browsers without container query units */
+    transform: translate3d(0, calc(100vh + 120px), 0) rotate(calc(var(--r) + 20deg));
+    transform: translate3d(0, calc(100cqh + 120px), 0) rotate(calc(var(--r) + 20deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Static texture: freeze each piece where it would have been at load and
+     drop to the lowest opacity (inline opacity needs !important). */
+  .tetromino {
+    animation: none;
+    transform: translate3d(0, calc(var(--p) * 100vh), 0) rotate(var(--r));
+    transform: translate3d(0, calc(var(--p) * 100cqh), 0) rotate(var(--r));
+    opacity: 0.06 !important;
+  }
+}

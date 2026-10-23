@@ -8,6 +8,7 @@ import Container from "./ui/Container";
 import Section from "./ui/Section";
 import Button from "./ui/Button";
 import GradientBG from "./ui/GradientBG";
+import TetrominoField from "./ui/TetrominoField";
 import Magnetic from "./ui/Magnetic";
 import { stagger, fadeUp, heroLineStagger, heroLine } from "@/lib/motion";
 import { useMediaQuery } from "@/lib/useMediaQuery";
@@ -30,7 +31,10 @@ const HeroSection = () => {
   const [tetrisOpen, setTetrisOpen] = useState(false);
 
   return (
-    <GradientBG className="pt-28 pb-12 md:pt-36 md:pb-20">
+    <GradientBG
+      className="pt-28 pb-12 md:pt-36 md:pb-20"
+      before={<TetrominoField />}
+    >
       <Container>
         <Section spacing="lg" className="!py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-center">
