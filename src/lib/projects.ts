@@ -360,45 +360,45 @@ export const projects: Project[] = [
     title: "Clovis",
     category: "dapp",
     summary:
-      "A cross-chain DeFi yield hub by Yei Finance — deposit once, earn everywhere — with curated multi-chain vaults and borrowing that keeps the position earning, live on testnet.",
+      "A cross-chain DeFi yield hub — deposit once, earn everywhere — with curated multi-chain vaults and borrowing that keeps the position earning, live on mainnet.",
     description:
-      "Curated multi-chain earn vaults that rebalance automatically across chains, plus borrow markets in two shapes — single-collateral on Morpho and multi-collateral on Euler — where the vault position itself is the collateral. A transparency page shows where the capital is allocated, and a hub-and-spoke architecture settles the accounting on a Base Sepolia hub.",
+      "Curated multi-chain earn vaults that rebalance automatically across chains, plus borrow markets in two shapes — single-collateral on Morpho Blue and multi-collateral on Euler — where the vault position itself is the collateral. A transparency page shows where the capital is allocated and which lending strategies it runs through, and a hub-and-spoke architecture settles the accounting on a Base hub.",
     stack: ["React", "TypeScript", "Solidity", "Morpho", "Euler"],
     heroMedia: {
       type: "image",
       src: "/images/projects/clovis.webp",
     },
     links: {
-      demo: "https://testnet.clovis.network",
+      demo: "https://app.clovis.network",
       caseStudy: "/projects/clovis",
     },
     featured: true,
     impact: [
       "Built the cross-chain earn vaults and borrow markets from the ground up",
-      "Live on testnet across multiple chains with a hub-and-spoke settlement design",
+      "Live on mainnet across multiple chains with a hub-and-spoke settlement design",
     ],
   },
   {
     id: 11,
-    slug: "pinjocep",
-    title: "Pinjocep",
+    slug: "kredit-my",
+    title: "Kredit.my",
     category: "mobile",
     summary:
-      "The official borrower app for a licensed lending platform — live on the App Store and Google Play.",
+      "The borrower app for a KPKT-licensed personal-loan lender — apply, see every charge before you sign, and follow each repayment from your phone.",
     description:
-      "Mobile app a licensed lending platform. Covers the full loan lifecycle: application and eKYC onboarding, digital agreement signing, loan and repayment tracking, repayments, and early settlement.",
+      "Borrower app for a licensed Malaysian moneylender, covering the full loan lifecycle: profile set-up and application, document upload and review, an offer that lists every charge, agreement signing, bank-transfer disbursement, and a loan page with every instalment, the early-settlement figure and payment reminders. Built in React Native and Expo and released through EAS.",
     stack: ["React Native", "Expo", "TypeScript", "EAS"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/pinjocep.webp",
+      src: "/images/projects/kredit-my.webp",
     },
     links: {
-      demo: "https://play.google.com/store/apps/details?id=com.srijeyasumi.pinjocep",
-      caseStudy: "/projects/pinjocep",
+      demo: "https://kredit.my",
+      caseStudy: "/projects/kredit-my",
     },
     impact: [
-      "Shipped to production on both the App Store and Google Play",
-      "Handles the full loan lifecycle — onboarding, eKYC, digital signing, and repayments",
+      "Took a licensed lender's full loan journey into one app, from application to settlement",
+      "Every charge and every instalment shown before the borrower signs",
     ],
   },
 ];

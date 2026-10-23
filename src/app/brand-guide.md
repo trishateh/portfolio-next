@@ -81,9 +81,9 @@ Supporting fields:
 
 ## 3) Typography
 
-- **Display (H1/H2, stat numerals)**: `Space Grotesk` via `font-display`. Uses the display
+- **Display (H1/H2, stat numerals)**: `Bricolage Grotesque` via `font-display`. Uses the display
   scale below.
-- **Body**: `Inter` (400/500).
+- **Body**: `Instrument Sans` (400/500).
 - **Accents (eyebrows, labels, chips, stat values, footer meta)**: `JetBrains Mono` (500),
   uppercase where used as labels, `tracking-[0.2em]`.
 

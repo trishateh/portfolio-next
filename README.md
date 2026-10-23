@@ -3,15 +3,13 @@
 Personal portfolio site for Trisha Teh, Senior Full-Stack Web3 Engineer. A single-page
 portfolio (`/`) plus a project case study route (`/projects/arcaden`), built with the
 Next.js App Router and TypeScript, styled with Tailwind CSS around a Solana-inspired
-purple → blue → green brand system, and animated with Framer Motion and Lenis smooth
-scroll.
+purple → blue → green brand system, and animated with Framer Motion.
 
 ## Tech Stack
 
 - [Next.js 14](https://nextjs.org/) (App Router) + [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS 3](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/) for animation
-- [Lenis](https://github.com/darkroomengineering/lenis) for smooth scroll
 - [Zod](https://zod.dev/) for data validation
 - [Lucide](https://lucide.dev/) / [React Icons](https://react-icons.github.io/react-icons/) for iconography
 

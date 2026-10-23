@@ -121,13 +121,13 @@ const config: Config = {
         current: "currentColor",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-instrument-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-jetbrains-mono)", "Consolas", "monospace"],
-        display: ["var(--font-space-grotesk)", "var(--font-inter)", "sans-serif"],
+        display: ["var(--font-bricolage)", "var(--font-instrument-sans)", "sans-serif"],
       },
       fontSize: {
         "display-2xl": [
-          "clamp(3.25rem, 6.5vw, 6.25rem)",
+          "clamp(2.75rem, 6.5vw, 6.25rem)",
           { lineHeight: "0.95", letterSpacing: "-0.04em" },
         ],
         "display-xl": [
@@ -183,9 +183,6 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
-      },
-      backdropBlur: {
-        xs: "2px",
       },
     },
   },

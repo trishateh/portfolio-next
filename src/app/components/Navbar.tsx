@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "./ui/Container";
 import Button from "./ui/Button";
+import LogoMark from "./ui/LogoMark";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -27,6 +27,7 @@ const navLinks = [
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [logoHovered, setLogoHovered] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,21 +45,20 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-brand-bg/80 backdrop-blur-md border-b border-brand-line"
+          ? "bg-brand-bg/95 border-b border-brand-line"
           : "bg-transparent"
       )}
     >
       <Container>
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <Image
-              src="/images/logo-icon.svg"
-              alt="Trisha Teh - Web3 Developer"
-              width={32}
-              height={32}
-              className="group-hover:opacity-80 transition-opacity duration-200"
-            />
+          <Link
+            href="/"
+            className="flex items-center gap-2 group"
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+          >
+            <LogoMark size={28} dip={logoHovered} />
             <span className="font-mono text-sm text-white">trisha.teh</span>
           </Link>
 
@@ -99,7 +99,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-brand-surface/95 backdrop-blur-md border-b border-brand-line md:hidden"
+              className="absolute top-full left-0 right-0 bg-brand-surface border-b border-brand-line md:hidden"
             >
               <Container>
                 <div className="py-6 space-y-4">

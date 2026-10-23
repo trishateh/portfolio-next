@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Github, FileText } from "lucide-react";
@@ -25,9 +26,33 @@ export default function ProjectCard({
   project,
   featured = false,
 }: ProjectCardProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const stackLimit = featured ? 4 : 3;
+
+  // Only play card videos while they are on screen so off-screen cards don't
+  // keep decoding frames during scroll.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio >= 0.25) {
+          // play() rejects if interrupted by pause(); that is expected here.
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: [0, 0.25] }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [project.heroMedia.type]);
+
   return (
     <motion.div whileHover={hoverLift} className="group h-full">
-      <Card className="overflow-hidden h-full flex flex-col">
+      <Card topAccent={featured} className="overflow-hidden h-full flex flex-col">
         {/* Hero Media */}
         <div
           className={`overflow-hidden rounded-t-2xl bg-slate-800 relative ${
@@ -44,17 +69,18 @@ export default function ProjectCard({
                   ? "(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
                   : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               }
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="object-cover object-top group-hover:scale-105 transition-transform duration-300 will-change-transform"
             />
           ) : (
             <video
+              ref={videoRef}
               src={project.heroMedia.src}
               poster={project.heroMedia.poster}
               muted
-              autoPlay
               loop
               playsInline
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              preload="none"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300 will-change-transform"
             />
           )}
 
@@ -62,7 +88,7 @@ export default function ProjectCard({
           <div className="absolute top-4 left-4">
             <Chip
               size="sm"
-              className="bg-black/40 backdrop-blur-md text-white border border-white/20"
+              className="bg-black/70 text-white border border-white/15"
             >
               {categoryLabels[project.category]}
             </Chip>
@@ -76,7 +102,11 @@ export default function ProjectCard({
             <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-purple transition-colors">
               {project.title}
             </h3>
-            <p className="text-slate-300/90 line-clamp-3 mb-4 leading-relaxed text-base">
+            <p
+              className={`text-slate-300/90 mb-4 leading-relaxed text-base ${
+                featured ? "line-clamp-3" : "line-clamp-2"
+              }`}
+            >
               {project.summary}
             </p>
 
@@ -109,14 +139,14 @@ export default function ProjectCard({
           {/* Tech Stack */}
           <div className="mb-6">
             <div className="flex flex-wrap gap-2">
-              {project.stack.slice(0, 4).map((tech) => (
+              {project.stack.slice(0, stackLimit).map((tech) => (
                 <Chip key={tech} size="sm">
                   {tech}
                 </Chip>
               ))}
-              {project.stack.length > 4 && (
+              {project.stack.length > stackLimit && (
                 <Chip size="sm" className="text-slate-500">
-                  +{project.stack.length - 4}
+                  +{project.stack.length - stackLimit}
                 </Chip>
               )}
             </div>

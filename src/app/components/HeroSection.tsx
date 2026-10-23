@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
@@ -8,30 +8,42 @@ import Container from "./ui/Container";
 import Section from "./ui/Section";
 import Button from "./ui/Button";
 import GradientBG from "./ui/GradientBG";
+import TetrominoField from "./ui/TetrominoField";
 import Magnetic from "./ui/Magnetic";
 import { stagger, fadeUp, heroLineStagger, heroLine } from "@/lib/motion";
+import { useMediaQuery } from "@/lib/useMediaQuery";
+
+const TetrisPlaceholder = () => (
+  <div className="h-[420px] md:h-[480px] w-full rounded-2xl border border-brand-line bg-brand-surface/40" />
+);
 
 const TetrisPanel = dynamic(() => import("./TetrisPanel"), {
   ssr: false,
-  loading: () => (
-    <div className="h-[420px] md:h-[480px] w-full rounded-2xl border border-brand-line bg-brand-surface/40" />
-  ),
+  loading: TetrisPlaceholder,
 });
 
 const stats = ["5+ yrs", "20+ products", "$200M+ processed", "300K+ users"];
 
 const HeroSection = () => {
+  // Visibility is CSS-gated (lg:hidden / hidden lg:block) so SSR markup matches;
+  // isDesktop only decides which slot mounts the game, so it never mounts twice.
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const [tetrisOpen, setTetrisOpen] = useState(false);
+
   return (
-    <GradientBG className="min-h-screen flex items-center pt-24 md:pt-28 pb-12 md:pb-16">
+    <GradientBG
+      className="pt-28 pb-12 md:pt-36 md:pb-20"
+      before={<TetrominoField />}
+    >
       <Container>
         <Section spacing="lg" className="!py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-center">
             {/* Content */}
             <motion.div
               variants={stagger}
               initial="hidden"
               animate="show"
-              className="order-1 lg:col-span-6 text-center lg:text-left"
+              className="lg:col-span-7"
             >
               {/* Eyebrow */}
               <motion.p
@@ -61,7 +73,7 @@ const HeroSection = () => {
               {/* Sub */}
               <motion.p
                 variants={fadeUp}
-                className="text-slate-300/90 text-lg max-w-xl mx-auto lg:mx-0 mb-8"
+                className="text-slate-300/90 text-lg max-w-[60ch] mb-8"
               >
                 I&apos;m Trisha. For the past five years I&apos;ve taken
                 products from first commit to production — DeFi protocols,
@@ -84,7 +96,7 @@ const HeroSection = () => {
               {/* CTA row */}
               <motion.div
                 variants={fadeUp}
-                className="flex items-center gap-3 justify-center lg:justify-start"
+                className="flex flex-wrap items-center gap-3"
               >
                 <Magnetic>
                   <Button variant="gradient" size="lg" href="#projects">
@@ -112,11 +124,29 @@ const HeroSection = () => {
                   <Linkedin className="w-5 h-5" />
                 </Button>
               </motion.div>
+
+              {/* Below lg the game is opt-in so the intro and CTAs stay above the fold */}
+              <motion.div variants={fadeUp} className="mt-6 lg:hidden">
+                <button
+                  type="button"
+                  onClick={() => setTetrisOpen((open) => !open)}
+                  aria-expanded={tetrisOpen}
+                  aria-controls="hero-tetris"
+                  className="font-mono text-xs text-brand-accent hover:text-brand-accentDark transition-colors"
+                >
+                  play tetris →
+                </button>
+                {tetrisOpen && !isDesktop && (
+                  <div id="hero-tetris" className="mt-4">
+                    <TetrisPanel />
+                  </div>
+                )}
+              </motion.div>
             </motion.div>
 
             {/* Interactive Tetris mini-game */}
-            <div className="order-2 lg:col-span-6 w-full">
-              <TetrisPanel />
+            <div className="hidden lg:block lg:col-span-5 w-full">
+              {isDesktop ? <TetrisPanel /> : <TetrisPlaceholder />}
             </div>
           </div>
         </Section>

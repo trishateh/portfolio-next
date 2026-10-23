@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
@@ -10,6 +9,8 @@ import Card from "./ui/Card";
 import Timeline from "./ui/Timeline";
 import SkillsGrid from "./ui/SkillsGrid";
 import AchievementsList from "./ui/AchievementsList";
+import AboutIllustration from "./ui/AboutIllustration";
+import BuildingBlocks from "./ui/BuildingBlocks";
 import { skillCategories, experiences, achievements } from "../data/aboutData";
 import { revealUp, stagger, bentoHover } from "@/lib/motion";
 
@@ -30,6 +31,7 @@ const BentoCell = ({ span, className, children }: BentoCellProps) => (
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <Section id="about">
@@ -59,15 +61,8 @@ const AboutSection = () => {
             <BentoCell span="md:col-span-4" className="md:p-8">
               <p className={cn(labelClass, "mb-5")}>bio</p>
               <div className="flex flex-col gap-6 sm:flex-row">
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/images/about.webp"
-                    alt="Trisha Teh"
-                    width={128}
-                    height={128}
-                    quality={100}
-                    className="h-24 w-24 rounded-2xl object-cover ring-1 ring-brand-line sm:h-28 sm:w-28"
-                  />
+                <div className="flex-shrink-0 self-center sm:self-start">
+                  <AboutIllustration />
                 </div>
                 <div className="space-y-3 leading-relaxed text-slate-300/90">
                   <p>
@@ -91,14 +86,22 @@ const AboutSection = () => {
 
             {/* Currently */}
             <BentoCell span="md:col-span-2">
-              <p className={cn(labelClass, "mb-5")}>currently</p>
-              <p className="font-medium leading-snug text-white">
-                Web3 Full Stack Engineer
-              </p>
-              <p className="mb-6 text-sm text-brand-accent">@ Yei Finance</p>
-              <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-glow" />
-                <span>status: building</span>
+              <div className="flex h-full flex-col">
+                <p className={cn(labelClass, "mb-5")}>currently</p>
+                <p className="font-medium leading-snug text-white">
+                  Web3 Full Stack Engineer
+                </p>
+                <p className="mb-6 text-sm text-brand-accent">@ Yei Finance</p>
+                <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
+                  <span className="relative flex h-1.5 w-1.5">
+                    {!prefersReducedMotion && (
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-accent opacity-40" />
+                    )}
+                    <span className="relative h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                  </span>
+                  <span>status: building</span>
+                </div>
+                <BuildingBlocks />
               </div>
             </BentoCell>
 

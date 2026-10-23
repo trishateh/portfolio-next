@@ -11,12 +11,15 @@ interface GradientBGProps {
   // "visible" is required on pages using position: sticky, which
   // overflow-hidden would otherwise break.
   overflow?: "hidden" | "visible";
+  // Decorative layer rendered above the grid texture and below the content.
+  before?: ReactNode;
 }
 
 export default function GradientBG({
   children,
   className,
   overflow = "hidden",
+  before,
 }: GradientBGProps) {
   return (
     <div
@@ -31,6 +34,8 @@ export default function GradientBG({
 
       {/* Faint block-grid texture, radially masked at the edges */}
       <div className="pointer-events-none absolute inset-0 bg-block-grid" />
+
+      {before}
 
       {/* Content */}
       <div className="relative z-10 w-full">{children}</div>

@@ -1,30 +1,39 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import SmoothScrollProvider from "./components/SmoothScrollProvider";
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: "--font-inter",
+// Self-hosted latin subsets of the Google Fonts variable files. Google
+// intermittently serves extensionless font URLs that crash the Next 14.1
+// `next/font/google` loader at build time.
+const instrumentSans = localFont({
+  src: "./fonts/InstrumentSans-latin.woff2",
+  variable: "--font-instrument-sans",
+  weight: "400 600",
   display: "swap",
+  // Off to keep the same load-time fallback as when served from Google.
+  adjustFontFallback: false,
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+const jetbrainsMono = localFont({
+  src: "./fonts/JetBrainsMono-latin.woff2",
   variable: "--font-jetbrains-mono",
+  weight: "100 800",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+const bricolage = localFont({
+  src: "./fonts/BricolageGrotesque-latin.woff2",
+  variable: "--font-bricolage",
+  weight: "200 800",
   display: "swap",
+  // Off to keep the same load-time fallback as when served from Google.
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
-  title: "Trisha Teh | Senior Web3 Engineer & Blockchain Developer",
+  title: "Trisha Teh | Senior Full-Stack Engineer, Web2 × Web3",
   description:
-    "Senior full-stack web3 engineer and former medical doctor building DeFi and blockchain products across 5+ chains — $200M+ volume processed, 300k+ users.",
+    "Senior full-stack engineer and former medical doctor. Five years shipping DeFi protocols, e-commerce platforms and mobile apps from first commit to production — $200M+ in volume processed, 300K+ users.",
   keywords: [
     "senior web3 engineer",
     "blockchain developer",
@@ -57,16 +66,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trisha Teh | Senior Web3 Engineer & Blockchain Developer",
+    title: "Trisha Teh | Senior Full-Stack Engineer, Web2 × Web3",
     description:
-      "Senior full-stack web3 engineer and former medical doctor building DeFi and blockchain products across 5+ chains — $200M+ volume processed, 300k+ users.",
+      "Senior full-stack engineer and former medical doctor. Five years shipping DeFi protocols, e-commerce platforms and mobile apps from first commit to production — $200M+ in volume processed, 300K+ users.",
     creator: "@_disco_giraffe",
   },
   openGraph: {
-    title: "Trisha Teh | Senior Web3 Engineer & Blockchain Developer",
+    title: "Trisha Teh | Senior Full-Stack Engineer, Web2 × Web3",
     url: "https://www.trishateh.com",
     description:
-      "Senior full-stack web3 engineer and former medical doctor building DeFi and blockchain products across 5+ chains — $200M+ volume processed, 300k+ users.",
+      "Senior full-stack engineer and former medical doctor. Five years shipping DeFi protocols, e-commerce platforms and mobile apps from first commit to production — $200M+ in volume processed, 300K+ users.",
     type: "website",
     locale: "en_US",
     siteName: "Trisha Teh Portfolio",
@@ -80,7 +89,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://www.trishateh.com/#person",
       name: "Trisha Teh",
-      jobTitle: "Senior Full-Stack Web3 Engineer",
+      jobTitle: "Senior Full-Stack Engineer",
       description:
         "Senior full-stack web3 engineer and blockchain developer, and former medical doctor, building DeFi and blockchain products across multiple chains.",
       url: "https://www.trishateh.com",
@@ -125,18 +134,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${instrumentSans.variable} ${jetbrainsMono.variable} ${bricolage.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={inter.className}>
+      <body className={instrumentSans.className}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );
