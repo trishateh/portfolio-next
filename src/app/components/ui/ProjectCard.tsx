@@ -51,7 +51,7 @@ export default function ProjectCard({
 
   return (
     <motion.div whileHover={hoverLift} className="group h-full">
-      <Card className="overflow-hidden h-full flex flex-col">
+      <Card topAccent={featured} className="overflow-hidden h-full flex flex-col">
         {/* Hero Media */}
         <div
           className={`overflow-hidden rounded-t-2xl bg-slate-800 relative ${
@@ -68,7 +68,7 @@ export default function ProjectCard({
                   ? "(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
                   : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               }
-              className="object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
+              className="object-cover object-top group-hover:scale-105 transition-transform duration-300 will-change-transform"
             />
           ) : (
             <video
@@ -79,7 +79,7 @@ export default function ProjectCard({
               loop
               playsInline
               preload="none"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300 will-change-transform"
             />
           )}
 

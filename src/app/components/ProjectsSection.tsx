@@ -86,7 +86,7 @@ const ProjectsSection = () => {
           {/* Projects Grid — bento */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-4 auto-rows-fr"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-4"
           >
             {displayedProjects.map((project, index) => (
               <motion.div
