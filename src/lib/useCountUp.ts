@@ -20,15 +20,10 @@ export function useCountUp(target: number, options?: UseCountUpOptions) {
       maximumFractionDigits: decimals,
     });
 
-  const [value, setValue] = useState(() => format(0));
+  const [value, setValue] = useState(() => format(target));
 
   useEffect(() => {
-    if (!isInView) return;
-
-    if (prefersReducedMotion) {
-      setValue(format(target));
-      return;
-    }
+    if (!isInView || prefersReducedMotion) return;
 
     const controls = animate(0, target, {
       duration,

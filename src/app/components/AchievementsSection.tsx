@@ -24,7 +24,6 @@ const stats: Stat[] = [
   },
   {
     monoLabel: "users reached",
-    prefix: "~",
     value: 300,
     suffix: "K+",
   },

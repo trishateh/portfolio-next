@@ -5,7 +5,7 @@ import Button from "./ui/Button";
 import Magnetic from "./ui/Magnetic";
 
 const fieldClasses =
-  "bg-brand-surface border border-brand-line rounded-lg font-mono text-sm text-white placeholder:text-slate-600 focus:border-brand-purple focus:ring-1 focus:ring-brand-purple focus:outline-none block w-full p-2.5";
+  "bg-brand-surface border border-brand-line rounded-lg font-mono text-sm text-white placeholder:text-slate-600 focus:border-brand-purple focus:ring-1 focus:ring-brand-purple focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-purple block w-full p-2.5";
 
 const labelClasses =
   "font-mono text-xs uppercase tracking-[0.2em] text-slate-500 block mb-2";
