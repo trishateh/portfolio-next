@@ -27,7 +27,7 @@ html {
 body {
   color: #E5E7EB;
   background: var(--brand-bg);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-instrument-sans), system-ui, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

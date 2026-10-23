@@ -1,5 +1,7 @@
-// Generates raster brand assets (PWA icons, apple-touch-icon, favicon.ico)
-// from public/favicon.svg. Run: node scripts/generate-icons.mjs
+// Generates raster brand assets. Maskable PNGs (PWA icons, apple-touch-icon)
+// render the bare mark public/images/logo-icon.svg on BG; favicon.ico frames
+// render public/favicon.svg, which carries its own rounded tile.
+// Run: node scripts/generate-icons.mjs
 import { readFile, writeFile, mkdir, stat, rm } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -8,13 +10,14 @@ import pngToIco from "png-to-ico";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BG = "#060609";
-const source = join(root, "public", "favicon.svg");
+const markSource = join(root, "public", "images", "logo-icon.svg");
+const faviconSource = join(root, "public", "favicon.svg");
 
-// Render the mark centered on a solid background, occupying ~60% of the
+// Render the bare mark centered on a solid background, occupying ~60% of the
 // canvas so it sits inside the maskable safe zone.
 async function renderMaskable(size, out) {
   const markSize = Math.round(size * 0.6);
-  const mark = await sharp(await readFile(source))
+  const mark = await sharp(await readFile(markSource))
     .resize(markSize, markSize, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toBuffer();
@@ -27,9 +30,9 @@ async function renderMaskable(size, out) {
   return out;
 }
 
-// Render the mark on a transparent background (used for the .ico frames).
+// Render the tiled favicon on a transparent background (used for the .ico frames).
 async function renderTransparent(size, out) {
-  await sharp(await readFile(source))
+  await sharp(await readFile(faviconSource))
     .resize(size, size, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile(out);

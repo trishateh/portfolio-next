@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScrollProvider from "./components/SmoothScrollProvider";
 
-const inter = Inter({ 
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-instrument-sans",
+  weight: ["400", "500", "600"],
   display: "swap",
+  // Next 14.1 has no fallback metrics for this font.
+  adjustFontFallback: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -15,16 +17,20 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+// No `weight`: with static weights Google serves extensionless font URLs the
+// Next 14.1 loader cannot parse, so load the variable font instead.
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-bricolage",
   display: "swap",
+  // Next 14.1 has no fallback metrics for this font.
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
-  title: "Trisha Teh | Senior Web3 Engineer & Blockchain Developer",
+  title: "Trisha Teh | Senior Full-Stack Engineer, Web2 × Web3",
   description:
-    "Senior full-stack web3 engineer and former medical doctor building DeFi and blockchain products across 5+ chains — $200M+ volume processed, 300k+ users.",
+    "Senior full-stack engineer and former medical doctor. Five years shipping DeFi protocols, e-commerce platforms and mobile apps from first commit to production — $200M+ in volume processed, 300K+ users.",
   keywords: [
     "senior web3 engineer",
     "blockchain developer",
@@ -57,16 +63,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trisha Teh | Senior Web3 Engineer & Blockchain Developer",
+    title: "Trisha Teh | Senior Full-Stack Engineer, Web2 × Web3",
     description:
-      "Senior full-stack web3 engineer and former medical doctor building DeFi and blockchain products across 5+ chains — $200M+ volume processed, 300k+ users.",
+      "Senior full-stack engineer and former medical doctor. Five years shipping DeFi protocols, e-commerce platforms and mobile apps from first commit to production — $200M+ in volume processed, 300K+ users.",
     creator: "@_disco_giraffe",
   },
   openGraph: {
-    title: "Trisha Teh | Senior Web3 Engineer & Blockchain Developer",
+    title: "Trisha Teh | Senior Full-Stack Engineer, Web2 × Web3",
     url: "https://www.trishateh.com",
     description:
-      "Senior full-stack web3 engineer and former medical doctor building DeFi and blockchain products across 5+ chains — $200M+ volume processed, 300k+ users.",
+      "Senior full-stack engineer and former medical doctor. Five years shipping DeFi protocols, e-commerce platforms and mobile apps from first commit to production — $200M+ in volume processed, 300K+ users.",
     type: "website",
     locale: "en_US",
     siteName: "Trisha Teh Portfolio",
@@ -80,7 +86,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://www.trishateh.com/#person",
       name: "Trisha Teh",
-      jobTitle: "Senior Full-Stack Web3 Engineer",
+      jobTitle: "Senior Full-Stack Engineer",
       description:
         "Senior full-stack web3 engineer and blockchain developer, and former medical doctor, building DeFi and blockchain products across multiple chains.",
       url: "https://www.trishateh.com",
@@ -125,18 +131,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${instrumentSans.variable} ${jetbrainsMono.variable} ${bricolage.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={inter.className}>
+      <body className={instrumentSans.className}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );
