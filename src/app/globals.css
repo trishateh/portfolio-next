@@ -157,3 +157,52 @@ body {
     opacity: 0.06 !important;
   }
 }
+
+/* About illustration: petal float, code-card typing and cursor blink. */
+.about-float {
+  animation: about-float var(--d) ease-in-out var(--delay) infinite;
+  transform-box: fill-box;
+}
+
+@keyframes about-float {
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Width animates in steps to read as typing; `both` holds 0 before the
+   stagger delay and the final width after. */
+.about-type {
+  animation: about-type 1.2s steps(10, end) var(--delay) both;
+}
+
+@keyframes about-type {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--w);
+  }
+}
+
+.about-blink {
+  animation: about-blink 1s steps(2, start) infinite;
+}
+
+@keyframes about-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-float,
+  .about-type,
+  .about-blink {
+    animation: none;
+  }
+}
