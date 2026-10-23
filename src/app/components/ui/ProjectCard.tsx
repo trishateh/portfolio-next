@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Github, FileText } from "lucide-react";
@@ -25,6 +26,29 @@ export default function ProjectCard({
   project,
   featured = false,
 }: ProjectCardProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Only play card videos while they are on screen so off-screen cards don't
+  // keep decoding frames during scroll.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio >= 0.25) {
+          // play() rejects if interrupted by pause(); that is expected here.
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: [0, 0.25] }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [project.heroMedia.type]);
+
   return (
     <motion.div whileHover={hoverLift} className="group h-full">
       <Card className="overflow-hidden h-full flex flex-col">
@@ -44,17 +68,18 @@ export default function ProjectCard({
                   ? "(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
                   : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               }
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
             />
           ) : (
             <video
+              ref={videoRef}
               src={project.heroMedia.src}
               poster={project.heroMedia.poster}
               muted
-              autoPlay
               loop
               playsInline
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              preload="none"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
             />
           )}
 
@@ -62,7 +87,7 @@ export default function ProjectCard({
           <div className="absolute top-4 left-4">
             <Chip
               size="sm"
-              className="bg-black/40 backdrop-blur-md text-white border border-white/20"
+              className="bg-black/70 text-white border border-white/15"
             >
               {categoryLabels[project.category]}
             </Chip>

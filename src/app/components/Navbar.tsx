@@ -44,7 +44,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-brand-bg/80 backdrop-blur-md border-b border-brand-line"
+          ? "bg-brand-bg/95 border-b border-brand-line"
           : "bg-transparent"
       )}
     >
@@ -54,7 +54,7 @@ const Navbar = () => {
           <Link href="/" className="flex items-center gap-2 group">
             <Image
               src="/images/logo-icon.svg"
-              alt="Trisha Teh - Web3 Developer"
+              alt="Trisha Teh"
               width={32}
               height={32}
               className="group-hover:opacity-80 transition-opacity duration-200"
@@ -99,7 +99,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-brand-surface/95 backdrop-blur-md border-b border-brand-line md:hidden"
+              className="absolute top-full left-0 right-0 bg-brand-surface border-b border-brand-line md:hidden"
             >
               <Container>
                 <div className="py-6 space-y-4">
