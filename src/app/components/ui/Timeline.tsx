@@ -32,9 +32,8 @@ export default function Timeline({ items }: TimelineProps) {
 
       <div className="space-y-6">
         {items.map((item, index) => {
-          // Latest role is brightest; older roles fade. Opacity lives on the
-          // node and company text, not the wrapper, since framer animates the
-          // wrapper's opacity for the reveal.
+          // Latest role is brightest; older nodes fade. Opacity lives on the
+          // node, not the wrapper, since framer animates the wrapper's opacity.
           const dim = Math.max(0.3, 1 - index * 0.17);
           return (
             <motion.div key={index} variants={fadeUp} className="relative">
@@ -52,7 +51,7 @@ export default function Timeline({ items }: TimelineProps) {
               <h3 className="text-white font-medium leading-tight">
                 {item.title}
               </h3>
-              <p className="text-sm text-brand-accent" style={{ opacity: dim }}>
+              <p className="text-sm text-brand-accent">
                 {item.company}
               </p>
             </motion.div>
