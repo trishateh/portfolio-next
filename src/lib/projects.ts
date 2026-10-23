@@ -380,25 +380,25 @@ export const projects: Project[] = [
   },
   {
     id: 11,
-    slug: "pinjocep",
-    title: "Pinjocep",
+    slug: "kredit-my",
+    title: "Kredit.my",
     category: "mobile",
     summary:
-      "The official borrower app for a licensed lending platform — live on the App Store and Google Play.",
+      "The borrower app for a KPKT-licensed personal-loan lender — apply, see every charge before you sign, and follow each repayment from your phone.",
     description:
-      "Mobile app a licensed lending platform. Covers the full loan lifecycle: application and eKYC onboarding, digital agreement signing, loan and repayment tracking, repayments, and early settlement.",
+      "Borrower app for a licensed Malaysian moneylender, covering the full loan lifecycle: profile set-up and application, document upload and review, an offer that lists every charge, agreement signing, bank-transfer disbursement, and a loan page with every instalment, the early-settlement figure and payment reminders. Built in React Native and Expo and released through EAS.",
     stack: ["React Native", "Expo", "TypeScript", "EAS"],
     heroMedia: {
       type: "image",
-      src: "/images/projects/pinjocep.webp",
+      src: "/images/projects/kredit-my.webp",
     },
     links: {
-      demo: "https://play.google.com/store/apps/details?id=com.srijeyasumi.pinjocep",
-      caseStudy: "/projects/pinjocep",
+      demo: "https://kredit.my",
+      caseStudy: "/projects/kredit-my",
     },
     impact: [
-      "Shipped to production on both the App Store and Google Play",
-      "Handles the full loan lifecycle — onboarding, eKYC, digital signing, and repayments",
+      "Took a licensed lender's full loan journey into one app, from application to settlement",
+      "Every charge and every instalment shown before the borrower signs",
     ],
   },
 ];

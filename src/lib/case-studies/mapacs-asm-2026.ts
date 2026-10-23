@@ -74,7 +74,7 @@ export const mapacsAsm2026: CaseStudy = {
       "MAPACS ASM 2026 shipped as one coherent surface for a three-day surgical congress in Penang: a Next.js site carrying the programme, faculty, and registration, and a Shopify storefront handling merchandise and payments behind it. I built the whole thing end to end, so a delegate can learn about the congress, register for it, and buy into it without ever leaving the event's own site.",
     ],
   },
-  related: ["pinjocep", "solana-nft-drop", "domain-service"],
+  related: ["kredit-my", "solana-nft-drop", "domain-service"],
   seo: {
     title: "MAPACS ASM 2026 Case Study | Trisha Teh",
     description:

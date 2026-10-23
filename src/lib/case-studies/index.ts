@@ -8,7 +8,7 @@ import { clovis } from "./clovis";
 import { mapacsAsm2026 } from "./mapacs-asm-2026";
 import { solanaNftDrop } from "./solana-nft-drop";
 import { domainService } from "./domain-service";
-import { pinjocep } from "./pinjocep";
+import { kreditMy } from "./kredit-my";
 
 // Registry of all case studies. Each entry is validated at module load so a
 // malformed case study fails the build instead of rendering a broken page.
@@ -22,7 +22,7 @@ const entries: CaseStudy[] = [
   mapacsAsm2026,
   solanaNftDrop,
   domainService,
-  pinjocep,
+  kreditMy,
 ];
 
 export const caseStudies: CaseStudy[] = entries.map((entry) =>
