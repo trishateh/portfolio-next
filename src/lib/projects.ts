@@ -360,22 +360,22 @@ export const projects: Project[] = [
     title: "Clovis",
     category: "dapp",
     summary:
-      "A cross-chain DeFi yield hub by Yei Finance — deposit once, earn everywhere — with curated multi-chain vaults and borrowing that keeps the position earning, live on testnet.",
+      "A cross-chain DeFi yield hub — deposit once, earn everywhere — with curated multi-chain vaults and borrowing that keeps the position earning, live on mainnet.",
     description:
-      "Curated multi-chain earn vaults that rebalance automatically across chains, plus borrow markets in two shapes — single-collateral on Morpho and multi-collateral on Euler — where the vault position itself is the collateral. A transparency page shows where the capital is allocated, and a hub-and-spoke architecture settles the accounting on a Base Sepolia hub.",
+      "Curated multi-chain earn vaults that rebalance automatically across chains, plus borrow markets in two shapes — single-collateral on Morpho Blue and multi-collateral on Euler — where the vault position itself is the collateral. A transparency page shows where the capital is allocated and which lending strategies it runs through, and a hub-and-spoke architecture settles the accounting on a Base hub.",
     stack: ["React", "TypeScript", "Solidity", "Morpho", "Euler"],
     heroMedia: {
       type: "image",
       src: "/images/projects/clovis.webp",
     },
     links: {
-      demo: "https://testnet.clovis.network",
+      demo: "https://app.clovis.network",
       caseStudy: "/projects/clovis",
     },
     featured: true,
     impact: [
       "Built the cross-chain earn vaults and borrow markets from the ground up",
-      "Live on testnet across multiple chains with a hub-and-spoke settlement design",
+      "Live on mainnet across multiple chains with a hub-and-spoke settlement design",
     ],
   },
   {
