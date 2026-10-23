@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import {
+  motion,
+  useInView,
+  AnimatePresence,
+  LayoutGroup,
+  useReducedMotion,
+} from "framer-motion";
 import { getAllProjects } from "@/lib/projects";
 import ProjectCard from "./ui/ProjectCard";
 import Container from "./ui/Container";
@@ -24,6 +30,7 @@ const ProjectsSection = () => {
   const [showAll, setShowAll] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const prefersReducedMotion = useReducedMotion();
 
   const allProjects = getAllProjects();
 
@@ -84,38 +91,78 @@ const ProjectsSection = () => {
           </motion.div>
 
           {/* Projects Grid — bento */}
-          <motion.div
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-4"
-          >
-            {displayedProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                variants={fadeUp}
-                transition={{ delay: index * 0.1 }}
-                className={`h-full ${
-                  project.featured ? "md:col-span-2" : ""
-                }`}
-              >
-                <ProjectCard project={project} featured={project.featured} />
-              </motion.div>
-            ))}
-          </motion.div>
+          <LayoutGroup>
+            <motion.div
+              variants={stagger}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-4"
+            >
+              <AnimatePresence mode="popLayout" initial={false}>
+                {displayedProjects.map((project, index) => {
+                  // Every second featured card sits on the right so the wide
+                  // cards alternate sides; dense flow backfills the left column.
+                  const featuredIndex = project.featured
+                    ? displayedProjects
+                        .slice(0, index)
+                        .filter((p) => p.featured).length
+                    : -1;
+                  const alignRight = featuredIndex % 2 === 1;
+                  // Phones show six cards before "View All"; md+ shows nine.
+                  const hideOnPhone = !showAll && index >= 6;
+
+                  return (
+                    <motion.div
+                      key={project.id}
+                      layout={!prefersReducedMotion}
+                      variants={fadeUp}
+                      exit={{
+                        opacity: 0,
+                        scale: 0.96,
+                        transition: { duration: 0.18 },
+                      }}
+                      transition={{
+                        delay: index * 0.1,
+                        layout: { duration: 0.3, ease: "easeOut" },
+                      }}
+                      className={`h-full ${
+                        project.featured ? "md:col-span-2" : ""
+                      } ${alignRight ? "lg:col-start-2" : ""} ${
+                        hideOnPhone ? "hidden md:block" : ""
+                      }`}
+                    >
+                      <ProjectCard
+                        project={project}
+                        featured={project.featured}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </motion.div>
+          </LayoutGroup>
 
           {/* View All Projects CTA */}
-          {!showAll && filteredProjects.length > 9 && (
-            <motion.div variants={fadeUp} className="text-center mt-12">
-              <p className="text-slate-400 mb-4">
-                Showing {displayedProjects.length} of {filteredProjects.length}{" "}
-                projects
-              </p>
-              <button
-                onClick={() => setShowAll(true)}
-                className="text-brand-accent hover:text-brand-accentDark transition-colors font-medium"
-              >
-                View All Projects →
-              </button>
-            </motion.div>
+          {!showAll && filteredProjects.length > 6 && (
+            // With 7–9 projects nothing is hidden on md+, so only phones need it.
+            <div className={filteredProjects.length > 9 ? "" : "md:hidden"}>
+              <motion.div variants={fadeUp} className="text-center mt-12">
+                <p className="text-slate-400 mb-4">
+                  Showing{" "}
+                  <span className="md:hidden">
+                    {Math.min(6, filteredProjects.length)}
+                  </span>
+                  <span className="hidden md:inline">
+                    {displayedProjects.length}
+                  </span>{" "}
+                  of {filteredProjects.length} projects
+                </p>
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="text-brand-accent hover:text-brand-accentDark transition-colors font-medium"
+                >
+                  View All Projects →
+                </button>
+              </motion.div>
+            </div>
           )}
 
           {/* Show Less CTA */}

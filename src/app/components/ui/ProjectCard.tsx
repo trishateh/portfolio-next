@@ -27,6 +27,7 @@ export default function ProjectCard({
   featured = false,
 }: ProjectCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const stackLimit = featured ? 4 : 3;
 
   // Only play card videos while they are on screen so off-screen cards don't
   // keep decoding frames during scroll.
@@ -101,7 +102,11 @@ export default function ProjectCard({
             <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-purple transition-colors">
               {project.title}
             </h3>
-            <p className="text-slate-300/90 line-clamp-3 mb-4 leading-relaxed text-base">
+            <p
+              className={`text-slate-300/90 mb-4 leading-relaxed text-base ${
+                featured ? "line-clamp-3" : "line-clamp-2"
+              }`}
+            >
               {project.summary}
             </p>
 
@@ -134,14 +139,14 @@ export default function ProjectCard({
           {/* Tech Stack */}
           <div className="mb-6">
             <div className="flex flex-wrap gap-2">
-              {project.stack.slice(0, 4).map((tech) => (
+              {project.stack.slice(0, stackLimit).map((tech) => (
                 <Chip key={tech} size="sm">
                   {tech}
                 </Chip>
               ))}
-              {project.stack.length > 4 && (
+              {project.stack.length > stackLimit && (
                 <Chip size="sm" className="text-slate-500">
-                  +{project.stack.length - 4}
+                  +{project.stack.length - stackLimit}
                 </Chip>
               )}
             </div>
